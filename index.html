@@ -3,15 +3,65 @@
 <head>
 	<meta charset="utf-8"/>
 	<title>Tutoriais, robótica, pesquisas e programação</title>
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css"  href="css/principal.css"/>
 </head>
 <body>
-	<h1>Tutorial - Como instalar NILMTK no OS X Yosemite(Mac)</h1>
+	<div class="container">
+	
+		<div class="page-header jumbotron">
+			<h1>Tutorial - Como instalar o NILMTK no OS X Yosemite(Mac)</h1>
+		</div>
+	
+		<blockquote>
+		<p>O seguinte procedimento foi originalmente adaptado do tutorial oficial para instalação no Ubuntu e outras distribuições Linux.</p>
+		<p>O tutorial original pode ser encontrado <a href="https://github.com/nilmtk/nilmtk/blob/master/docs/manual/user_guide/install.md">aqui.</a></p>
+		</blockquote>
+		<p>É recomendado o uso da <a href="https://www.continuum.io/downloads">Anaconda</a>, que é uma distro free do Python, ela possui mais de 300 pacotes muito usados nas áreas de engenharia, análise de dados e ciências. Recomenda-se instalar a versão Anaconda para Python 2.7.x, segundo os desenvolvedores o NILMTK não suporta a versão 3. Iremos instalar a versão da linha de comandos.</p><br/>
+		<ul>
+			<p>
+				<li>Para baixar a versão Python 2.7 clique <a href="https://3230d63b5fc54e62148e-c95ac804525aac4b6dba79b00b39d1d3.ssl.cf1.rackcdn.com/Anaconda-2.3.0-MacOSX-x86_64.sh">aqui</a></li>
+				Após baixar, abra o terminal no seu mac.<br/>
+				Digite o seguinte no terminal:<br/>
+				<code class="bg-info">RandyMac:~ randy$ cd ~/Downloads</code> irá navegar até o diretório de Downloads.<br/>
+				<code class="bg-info">RandyMac:Downloads randy$ bash Anaconda-2.3.0-MacOSX-x86_64.sh</code>
+			</p>
+			<p>
+				<li>
+					Ao finalizar o processo, precisamos atualizar os pacotes da Anaconda, no terminal:
+				</li>
+				<code class="bg-info">RandyMac:Downloads randy$ source ~/.bash_profile</code><br/>
+				<code class="bg-info">RandyMac:Downloads randy$ conda update --yes conda</code>, por ora, feche o terminal.
+				<br/><b>NOTA:</b> A anaconda já vem com o HDF5 instalado na versão 2.7, verifique <a href="http://docs.continuum.io/anaconda/pkg-docs">aqui</a> os pacotes instalados. No entanto, para garantir iremos instalar algumas dependências extras, para tal iremos usar o <a href="https://www.macports.org/">MacPorts</a>.
+				Antes de instalá-lo, instale a última versão do <a href="https://developer.apple.com/xcode/">Xcode</a>, quando esse artigo foi escrito a versão estável era o Xcode 7.0.1.
+				<p>MacPorts é um gerenciador de pacotes que instala pacotes com todas as suas dependências no seu Mac, você pode baixá-lo <a href="https://distfiles.macports.org/MacPorts/MacPorts-2.3.3-10.10-Yosemite.pkg">aqui</a>. Após baixá-lo abra-o usando <kbd>control+clique</kbd> e selecione Abrir no menu que aparecer, instale-o.</p> Abra um novo terminal e atualize os seus pacotes:<br/>
+				<code class="bg-info">RandyMac:~ randy$ sudo port selfupdate</code><br/>
+				<code class="bg-info">RandyMac:~ randy$ port search hdf5</code>, retorna todos os pacotes relacionados ao formato hdf5.<br/>Iremos instalar os pacotes <pre>lz4, py27-lz4, hdf5, h5utils, h4h5tools</pre>
+				Usaremos os seguintes comandos no terminal, na mesma ordem que se apresentam de preferência: <br/>
+				<code class="bg-info">RandyMac:~ randy$ sudo port install lz4</code><br/>
+				<code class="bg-info">RandyMac:~ randy$ sudo port install py27-lz4</code><br/>
+				<code class="bg-info">RandyMac:~ randy$ sudo port install hdf5</code><br/>
+				<code class="bg-info">RandyMac:~ randy$ sudo port install h5utils</code><br/>
+				<code class="bg-info">RandyMac:~ randy$ sudo port install h4h5tools</code><br/>
+			</p>
+			<p>
+				<li>
+					 Instalando o Pip e outras dependências na distro anaconda, abra um novo terminal:
+				</li>
+				O Mac normalmente já vem com uma versão do Python instalado, para verificar a versão instalada na sua máquina insira o seguinte no terminal:<br>
+				<code class="bg-info">RandyMac:~ randy$ python --version</code>
+				<br/> <code class="bg-info">RandyMac:~ randy$ conda install --yes pip numpy scipy six scikit-learn pandas numexpr pytables dateutil matplotlib networkx</code>, no site oficial do NILMTK essa linha de código inclui o <a href="https://github.com/hmmlearn/hmmlearn">hmmlearn</a> (pacote de Modelos Ocultos de Markov), iremos instalá-lo de forma separada, pois não existe um pacote anaconda para Mac.
+			</p>
+			<p>
+				<li>
+					Instalando e configurando o git:
+				</li>
+			</p>
+		</ul>
 
+	</div>
 	<footer class="footer">
 		<div class="container">
-			<p class="text-muted">Meu rodapé</p>
+			<p class="text-muted">2015&copy; Randy Quindai</p>
 		</div>
 	</footer>
 </body>

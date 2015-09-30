@@ -1,3 +1,5 @@
+@import url(font-awesome.min.css);
+@import url("https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css");
 html {
   position: relative;
   min-height: 100%;
@@ -5,6 +7,8 @@ html {
 body {
   /* Margin bottom by footer height */
   margin-bottom: 60px;
+  /*background-color: black;
+  color: gray;*/
 }
 .footer {
   position: absolute;
@@ -16,15 +20,14 @@ body {
 }
 
 
-/* Custom page CSS
--------------------------------------------------- */
-/* Not required for template or sticky footer method. */
-
-.container {
-  width: auto;
-  max-width: 680px;
-  padding: 0 15px;
-}
 .container .text-muted {
   margin: 20px 0;
+}
+.jumbotron{
+  color: #333300;
+  background-color: #E9F5FF;
+}
+code{
+  color: black;
+  font-weight: bold;
 }
