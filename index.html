@@ -10,6 +10,7 @@
 	
 		<div class="page-header jumbotron">
 			<h1>Tutorial - Como instalar o NILMTK no OS X Yosemite(Mac)</h1>
+			<small><a href="http://arxiv.org/pdf/1404.3878v1.pdf">Artigo</a></small>
 		</div>
 	
 		<blockquote>
@@ -55,6 +56,25 @@
 				<li>
 					Instalando e configurando o git:
 				</li>
+				Você pode aprender mais sobre <a href="http://git-scm.com/book/pt-br/v1">git</a>, no entanto, nos focaremos apenas na instalação e configuração básica para instalar os pacotes necessários para rodar o NILMTK.
+				O Mac normalmente já vem com o git instalado, caso você não o tenha, você pode instalá-lo usando o MacPorts:
+				<br/><code class="bg-info">RandyMac:~ randy$ sudo port install git-core +svn +doc +bash_completion +gitweb</code><br/>Para configurar o git você precisa criar uma conta no <a href="https://github.com/">github</a>, depois no terminal insira os seguintes comandos:<br/>
+				<code class="bg-info">RandyMac:~ randy$ git config --global user.name "John Doe"</code>
+				<br/><code class="bg-info">RandyMac:~ randy$ git config --global user.email johndoe@example.com</code><br/>Substitua o nome "John Doe" pelo seu nome cadastrado no github, o mesmo vale para o e-mail.<br/>
+				<code class="bg-info">RandyMac:~ randy$ git config --list</code>, verifica as suas configurações. Pronto! Você está preparado para prosseguir.
+			</p>
+			<p>
+				<li>Instalando o <a href="https://github.com/hmmlearn/hmmlearn">hmmlearn</a>:</li>
+				Crie uma pasta no seu diretório local para armazenar os projetos git:<br/>
+				<code class="bg-info">RandyMac:~ randy$ mkdir ~/git</code><br/>
+				<code class="bg-info">RandyMac:~ randy$ cd ~/git</code><br/>
+				<code class="bg-info">RandyMac:git randy$ git clone https://github.com/hmmlearn/hmmlearn.git</code><br/>
+				<code class="bg-info">RandyMac:git randy$ cd hmmlearn</code><br/>
+				<code class="bg-info">RandyMac:hmmlearn randy$ pip install numpy scipy scikit-learn</code><br/>
+				<code class="bg-info">RandyMac:hmmlearn randy$ sudo python setup.py install</code><br/>
+			</p>
+			<p>
+				<li>Instalando o PostgreSQL:</li>
 			</p>
 		</ul>
 
