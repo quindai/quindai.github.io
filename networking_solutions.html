@@ -1,12 +1,106 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta http-equiv="refresh" content="1" url="mailto:geral@ns.co.ao">
 	<title></title>
+	<style type="text/css">
+		@import url(https://fonts.googleapis.com/css?family=Lato:400,700);
+		*{
+			box-sizing: border-box;
+		}
+		body{
+			margin: 0;
+			background: #E2E4E7; /* fallback for old browsers */
+		    height: 100%;
+		    position: relative;
+		    font-family: 'Lato', Arial, Helvetica, sans-serif;
+  		}
+
+  		form { max-width:420px; margin:50px auto; position: relative; top: -130px; clear: both;}
+
+.feedback-input {
+  color:white;
+  font-family: Helvetica, Arial, sans-serif;
+  font-weight:500;
+  font-size: 18px;
+  border-radius: 5px;
+  line-height: 22px;
+  background-color: transparent;
+  border:2px solid black;
+  transition: all 0.3s;
+  padding: 13px;
+  margin-bottom: 15px;
+  width:100%;
+  box-sizing: border-box;
+  outline:0;
+}
+
+.feedback-input:focus { border:2px solid #3a7bd5; }
+
+textarea {
+  height: 150px;
+  line-height: 150%;
+  resize:vertical;
+}
+
+[type="submit"] {
+  font-family: 'Lato', Arial, Helvetica, sans-serif;
+  width: 100%;
+  /*background:#CC6666;*/
+
+
+background: #4B79A1; /* fallback for old browsers */
+background: -webkit-linear-gradient(to left, #4B79A1 , #283E51); /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to left, #4B79A1 , #283E51); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+        
+        
+  border-radius:5px;
+  border:0;
+  cursor:pointer;
+  color:white;
+  font-size:24px;
+  padding-top:10px;
+  padding-bottom:10px;
+  transition: all 0.3s;
+  margin-top:-4px;
+  font-weight:700;
+}
+[type="submit"]:hover { background:#283E51; }
+
+img{	
+	text-align:center;
+	width:100%;
+	display:block;
+	margin-left: auto;
+	margin-right: auto;
+	max-width: 60%;
+}
+	
+	</style>
 </head>
 <body>
-<p>Redirecionando
+<!--p>Caso a caixa de email não tenha funcionado clique aqui
 <a href="mailto:geral@ns.co.ao" target="_top">...
-</p>
+</p-->
+	
+	
+	<img src="networking.png" />
+	<form name="contact" action="backHome()">  
+	<h1>Fale Connosco</h1>    
+  <input name="name" type="text" class="feedback-input" placeholder="Insira o seu primeiro nome" />   
+  <input name="email" type="email" class="feedback-input" placeholder="Insira o seu email" required />
+  <textarea name="text" class="feedback-input" placeholder="Coloque aqui a sua mensagem"></textarea>
+  <input type="submit" value="Enviar"/>
+</form>
+
+	<script type="text/javascript">
+		document.contact.name.focus();
+
+		function backHome(){
+			window.open("https://localhost/~randy/hotspot_main/login.html");
+		};
+		var sendEmail = function(name, from, content){
+
+		};
+	</script>
 </body>
 </html>
