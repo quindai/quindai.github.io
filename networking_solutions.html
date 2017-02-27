@@ -16,7 +16,7 @@
 		    font-family: 'Lato', Arial, Helvetica, sans-serif;
   		}
 
-  		form { max-width:420px; margin:50px auto; position: relative; top: -130px; clear: both;}
+  		form { max-width:420px; margin:50px auto; position: relative; top: -130px; clear: both; width: 80%}
 
 .feedback-input {
   color:white;
@@ -44,26 +44,22 @@ textarea {
 }
 
 [type="submit"] {
-  font-family: 'Lato', Arial, Helvetica, sans-serif;
-  width: 100%;
+	font-family: 'Lato', Arial, Helvetica, sans-serif;
+	width: 100%;
   /*background:#CC6666;*/
-
-
-background: #4B79A1; /* fallback for old browsers */
-background: -webkit-linear-gradient(to left, #4B79A1 , #283E51); /* Chrome 10-25, Safari 5.1-6 */
-background: linear-gradient(to left, #4B79A1 , #283E51); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-        
-        
-  border-radius:5px;
-  border:0;
-  cursor:pointer;
-  color:white;
-  font-size:24px;
-  padding-top:10px;
-  padding-bottom:10px;
-  transition: all 0.3s;
-  margin-top:-4px;
-  font-weight:700;
+	background: #4B79A1; /* fallback for old browsers */
+	background: -webkit-linear-gradient(to left, #4B79A1 , #283E51); /* Chrome 10-25, Safari 5.1-6 */
+	background: linear-gradient(to left, #4B79A1 , #283E51); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+	border-radius:5px;
+	border:0;
+	cursor:pointer;
+	color:white;
+	font-size:24px;
+	padding-top:10px;
+	padding-bottom:10px;
+	transition: all 0.3s;
+	margin-top:-4px;
+	font-weight:700;
 }
 [type="submit"]:hover { background:#283E51; }
 
@@ -75,6 +71,16 @@ img{
 	margin-right: auto;
 	max-width: 50%;
 }
+	@media only screen and (max-width: 970px){
+		form{
+			top: -3em;
+			height: 80%;
+		}
+		h1{
+			font-size: 1em;
+			text-align: center;
+		}
+	}
 	
 	</style>
 </head>
@@ -88,6 +94,7 @@ img{
 	<form name="contact" action="javascript:backHome()">  
 	  <h1>Fale Connosco</h1>    
 	  <input name="name" type="text" class="feedback-input" placeholder="Insira o seu primeiro nome" />   
+	  <input name="tel" type="number" class="feedback-input" placeholder="Insira o seu telefone" />   
 	  <input name="email" type="email" class="feedback-input" placeholder="Insira o seu email" required />
 	  <textarea name="text" class="feedback-input" placeholder="Coloque aqui a sua mensagem"></textarea>
 	  <input type="submit" value="Enviar"/>
