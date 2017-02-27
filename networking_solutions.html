@@ -85,16 +85,20 @@ img{
 	
 	
 	<img src="networking.png" />
-	<form name="contact" action="backHome()">  
+	<form name="contact">  
 	<h1>Fale Connosco</h1>    
-  <input name="name" type="text" class="feedback-input" placeholder="Insira o seu primeiro nome" />   
-  <input name="email" type="email" class="feedback-input" placeholder="Insira o seu email" required />
-  <textarea name="text" class="feedback-input" placeholder="Coloque aqui a sua mensagem"></textarea>
-  <input type="submit" value="Enviar"/>
-</form>
+	  <input name="name" type="text" class="feedback-input" placeholder="Insira o seu primeiro nome" />   
+	  <input name="email" type="email" class="feedback-input" placeholder="Insira o seu email" required />
+	  <textarea name="text" class="feedback-input" placeholder="Coloque aqui a sua mensagem"></textarea>
+	  <input type="submit" value="Enviar"/>
+	</form>
 
 	<script type="text/javascript">
 		document.contact.name.focus();
+
+		window.onload = function{
+			document.contact.action = backHome();
+		}
 
 		function backHome(){
 			window.open("obrigado.html");
