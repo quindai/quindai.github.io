@@ -85,8 +85,8 @@ img{
 	
 	
 	<img src="networking.png" />
-	<form name="contact">  
-	<h1>Fale Connosco</h1>    
+	<form name="contact" action="javascript:backHome()">  
+	  <h1>Fale Connosco</h1>    
 	  <input name="name" type="text" class="feedback-input" placeholder="Insira o seu primeiro nome" />   
 	  <input name="email" type="email" class="feedback-input" placeholder="Insira o seu email" required />
 	  <textarea name="text" class="feedback-input" placeholder="Coloque aqui a sua mensagem"></textarea>
@@ -96,12 +96,13 @@ img{
 	<script type="text/javascript">
 		document.contact.name.focus();
 
-		window.onload = function{
-			document.contact.action = backHome();
-		}
+		// window.onload = function{
+		// 	document.contact.action = backHome();
+		// }
 
 		function backHome(){
-			window.open("obrigado.html");
+			//alert("aqui");
+			window.open("obrigado.html","_self");
 		};
 		var sendEmail = function(name, from, content){
 			backHome;
