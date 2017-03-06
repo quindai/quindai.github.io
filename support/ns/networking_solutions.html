@@ -57,11 +57,11 @@ textarea {
 	font-size:24px;
 	padding-top:10px;
 	padding-bottom:10px;
-	transition: all 0.3s;
+	transition: all 0.5s;
 	margin-top:-4px;
 	font-weight:700;
 }
-[type="submit"]:hover { background:#283E51; }
+[type="submit"]:hover { background:linear-gradient(to right, #4B79A1 , #283E51); }
 
 img{	
 	text-align:center;
@@ -82,6 +82,7 @@ img{
 		}
 	}
 	
+	
 	</style>
 </head>
 <body>
@@ -91,7 +92,7 @@ img{
 	
 	
 	<img src="networking.png" />
-	<form name="contact" action="javascript:backHome()">  
+	<form name="contact" action="javascript:sendEmail()">  
 	  <h1>Fale Connosco</h1>   
 	  <input name="name" type="text" class="feedback-input" placeholder="Insira o seu primeiro nome" />   
 	  <input name="tel" type="number" class="feedback-input" placeholder="Insira o seu telefone" />   
@@ -102,11 +103,10 @@ img{
 
 	<script type="text/javascript">
 		document.contact.name.focus();
-		function backHome(){
-			window.open("obrigado.html","_self");
-		};
+		document.cookie='backTo='+document.referrer+'; expires='+new Date(new Date().getTime() + 365 * 24 * 60 * 60 * 1000)+'; path=/';
+
 		var sendEmail = function(name, from, content){
-			backHome;
+			window.open("obrigado.html","_self");
 		};
 	</script>
 </body>
