@@ -1,0 +1,13 @@
+{
+	"name": "Nodeschool Luanda 2017",
+	"description": "O proprietário desse badge tem a habilidade de inovar e resolver problemas, 
+	enfrentados por programadores experientes em situações reais. Essa pessoa demonstrou
+	 habilidades de programação avançadas durante o evento(comandos avançados da linha de
+	  comandos, preparação do ambiente) e tem capacidade para desenvolver aplicações web em
+	   javascript (front-end, back-end). Ganhou muita experiência em desenvolver aplicações usando nodejs,
+	    possuindo habilidades para desenvolver soluções profissionais independente do sistema operativo (Windows, 
+	    Linux, MacOS).",
+	"image": "https://github.com/nodeschool/luanda/blob/master/imagens/logo.png?raw=true",
+	"criteria": "https://ti.to/quindai/nodeschool-luanda/pt",
+	"issuer": "http://quindai.github.io/badge-issuer.json"
+}
