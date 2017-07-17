@@ -6,9 +6,9 @@
     "hashed": false
   },
   "issuedOn":  1388534400,
-  "badge": "https://github.com/quindai/quindai.github.io/blob/master/nodeschool-badges/rookie-badge-class.json",
+  "badge": "http://quindai.github.io/nodeschool-badges/rookie-badge-class.json",
   "verify": {
     "type": "hosted",
-    "url": "https://github.com/quindai/quindai.github.io/blob/master/nodeschool-badges/rookie-badge-award.json"
+    "url": "http://quindai.github.io/nodeschool-badges/rookie-badge-award.json"
   }
 }
