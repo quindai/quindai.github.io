@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Jogo da Velha</title>
+	<style type="text/css" media="screen">
+	#jogo{
+		display: block;
+		float: left;
+		/*margin: 0 auto;*/
+		
+		/*border: 1px solid black;*/
+	}
+
+</style>
+</head>
+<body>
+	<p></p>
+	<h5>Randy Quindai<br>Teoria dos Jogos (MiniMax Jogo da Velha (TicTacToe) - 2019<br>Prof. Roberta</h5>
+	<div class="canvas-wrapper">
+		<canvas id="jogo">
+			
+		</canvas>
+	</div>
+
+
+	<script type="text/javascript">
+		var player = true;  // true : jogador 1;  false : jogador 2
+		var lineColor = "#ddd";
+		var sectionSize = 400 / 3; //canvas size 400x400px
+		var auxTab = [[-1,-1,-1],[-1,-1,-1],[-1,-1,-1]];
+		var tabuleiro = document.createElement('p');
+		var gameStatus = true;
+
+		var canvas = document.getElementById("jogo"); 
+		canvas.width= 400;
+		canvas.height= 400;
+		canvas.ctx = canvas.getContext("2d");
+		canvas.ctx.translate(0.5, 0.5);
+		
+		// Register events on canvas
+		canvas.addEventListener('mouseup', (event)=>{ drawOn(event); });
+		canvas.addEventListener('touchleave', (event)=>{ drawOn(event);	});
+
+		function drawOn(event){
+			drawPlayerChoice(getMousePosition(event));
+			//alert("Clique no canvas X="+ getMousePosition(event).x + "; Y="+getMousePosition(event).y );
+
+		}
+
+		drawBoard(canvas.ctx, 4, lineColor);
+
+//debug
+canvas.addEventListener('mousemove', (event)=>{ 
+	console.log("X="+ getMousePosition(event).x + "; Y="+getMousePosition(event).y);
+});
+//
+
+
+//****** Board drawing
+		function drawBoard(ctx, lwidth, strokeStyle){
+			let lStart = 4; 	 	// position to start drawing lines
+			let llength = 400-10; 	//line length
+			ctx.lineWidth = lwidth;
+			ctx.lineCap = 'round';
+			ctx.strokeStyle = strokeStyle; // line color
+			ctx.beginPath();
+			// horizontal lines
+				for (i = 1; i <= 2; ++i) {
+					ctx.moveTo(lStart, i*sectionSize);
+					ctx.lineTo(llength, i*sectionSize);
+				}
+			
+			//vertical lines
+				for (i = 1; i <= 2; ++i) {
+					ctx.moveTo(i*sectionSize, lStart);
+					ctx.lineTo(i*sectionSize, llength);
+				}
+			ctx.stroke();
+		}
+
+		// draws X or 0
+		function drawPlayerChoice(mouse){
+			let xCor, yCor;
+
+			if (gameStatus)
+				for(i = 0; i<3; ++i)
+					for(j = 0; j<3; ++j){
+						xCor = i*sectionSize;
+						yCor = j*sectionSize;
+
+						if(mouse.x >= xCor && mouse.x <= xCor+sectionSize && mouse.y >= yCor && mouse.y <= yCor+sectionSize) {
+							if (auxTab[(yCor/133)>>0][(xCor/133)>>0] === -1){
+								clearSection(xCor, yCor);
+								
+							//	alert("Xcor = "+ xCor + "   YCor = "+ yCor);
+								auxTab[(yCor/133)>>0][(xCor/133)>>0] = ( player===true ? drawX(xCor, yCor) : draw0(xCor, yCor) );
+								escreveTabuleiro();
+								player = !player;
+								
+								/*if ( !(venceu(0).status || venceu(1).status) && 
+									!auxTab.some(item => { return item.includes(-1); }) ) {
+									tabuleiro.innerHTML += '<br><br>Empate!'
+									gameStatus = false;
+								}*/
+
+								venceu(0);
+								venceu(1);
+								if (!auxTab.some(item => { return item.includes(-1); }) && gameStatus){
+									gameStatus = false;
+									tabuleiro.innerHTML += "<br><br> Empate!"
+								}
+							}
+						}
+					}
+		}
+
+		function drawX(xCor, yCor){
+			let ctx = canvas.ctx;
+			let offset = 50;
+			let secOffset = sectionSize - offset;
+			ctx.strokeStyle = "#f1be32";
+			ctx.beginPath()
+				ctx.moveTo(xCor + offset, yCor+offset);
+				ctx.lineTo(xCor+secOffset, yCor+secOffset);
+
+				ctx.moveTo(xCor+offset, yCor+secOffset);
+				ctx.lineTo(xCor+secOffset,yCor+offset)
+			ctx.stroke();
+			return 1;
+		}
+
+		function draw0(xCor, yCor){
+			let ctx = canvas.ctx;
+			let halfSec = 0.5*sectionSize;
+			let centerX = xCor + halfSec;
+			let centerY = yCor + halfSec;
+			let radius = (sectionSize - 100)/2;
+			let startAngle = 0;
+			let endAngle = 2* Math.PI;
+			ctx.strokeStyle = "#01bBC2";
+
+			ctx.beginPath();
+			ctx.arc(centerX, centerY, radius, startAngle, endAngle);
+			ctx.stroke();
+			return 0;
+		}
+
+		function clearSection(xCor, yCor){
+			let ctx = canvas.ctx;
+			ctx.fillStyle = '#fff';
+			ctx.fillRect(xCor+5, yCor+5, sectionSize - 10, sectionSize-10);
+		}
+
+//******  Board drawing End
+
+
+		function getMousePosition(e){
+			let rect = canvas.getBoundingClientRect();
+			return {
+				x: Math.round(e.clientX - rect.left),
+				y: Math.round(e.clientY - rect.top)
+			}
+		}
+
+
+	// All rules to control the game
+	
+	document.body.appendChild(tabuleiro);
+	escreveTabuleiro();
+//debugger;
+
+
+
+function escreveTabuleiro(){
+	let i, j;
+	tabuleiro.innerHTML = '';
+	for(i = 0; i<3; ++i){
+		for(j = 0; j<3; ++j){
+			tabuleiro.innerHTML += "  "+ auxTab[i][j] +"   |";
+		}
+		tabuleiro.innerHTML += '<br>';
+		for(j = 0; j<3; ++j){
+			tabuleiro.innerHTML += "---"
+			if (j <= 2) tabuleiro.innerHTML += "|";
+		}
+		tabuleiro.innerHTML += '<br>';
+	}
+}
+
+/** Functions to verify the status o the game ***/
+function venceuLinha(marca){
+	let j,i, b=true;
+		//verifica linha ganha
+		for(i=0; i<3; ++i){
+			j=0;
+			b=true;
+			while( j<3 ){
+				//b = true;
+				if(auxTab[i][j++] != marca) b = false;
+				//else b = b || false;
+			}
+		//	debugger;
+		gameStatus = (!gameStatus ? gameStatus : !b);
+		if(b) return tabuleiro.innerHTML += '<br><br>Linha: Jogador '+ marca+ ' venceu.'
+	}
+}
+
+function venceuColuna(marca){
+	let j,i, b=true;
+		//verifica linha ganha
+		for(i=0; i<3; ++i){
+			j=0;
+			b=true;
+			while( j<3 ){
+				//b = true;
+				if(auxTab[j++][i] != marca) b = false;
+				//else b = b || false;
+			}
+		//	debugger;
+		gameStatus = (!gameStatus ? gameStatus : !b);
+		if(b) return tabuleiro.innerHTML += '<br><br>Coluna: Jogador '+ marca+ ' venceu.'
+	}
+}
+
+function venceuDiagonalPrincipal(marca){
+	let j,i, b=true;
+		//verifica linha ganha
+		for(i=0; i<3; ++i){
+			//j=0;
+			//b=true;
+			
+				//b = true;
+				if(auxTab[i][i] != marca) b = false;
+				//else b = b || false;
+
+		//	debugger;
+	}
+	gameStatus = (!gameStatus ? gameStatus : !b);
+	if(b) 
+		return tabuleiro.innerHTML += '<br><br>Diagonal Principal: Jogador '+ marca+ ' venceu.'
+		
+}
+
+function venceuDiagonalSecundaria(marca){
+	let j,i, b=true;
+		//verifica linha ganha
+		for(i=2; i>=0; --i){
+			//j=0;
+			//b=true;
+			//debugger;
+				//b = true;
+				if(auxTab[i][2-i] != marca) b = false;
+				//else b = b || false;
+
+			//debugger;
+		}	
+		gameStatus = (!gameStatus ? gameStatus : !b);
+		if(b) return tabuleiro.innerHTML += '<br><br>Diagonal Secundaria: Jogador '+ marca+ ' venceu.'
+
+	}
+
+function venceu(marca){
+	return venceuLinha(marca) + venceuDiagonalSecundaria(marca) + 
+	venceuColuna(marca) + venceuDiagonalPrincipal(marca);
+}
+
+tabuleiro.addEventListener("click", ()=> {venceu(0)});
+tabuleiro.addEventListener("click", ()=> {venceu(1)});
+
+</script>
+</body>
+</html>
