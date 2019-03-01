@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="description" content="Jogo da velha com MiniMax">
+    <meta name="keywords" content="Jogo da velha, TicTacToe, Tic Tac Toe, minmax, MiniMax, AI, Artificial Intelligence, unbeatable game">
+    <meta name="author" content="Randy Quindai">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Jogo da Velha - Human vs PC(MiniMax)</title>
+	<style type="text/css">
+		#jogo{
+			display: block;
+			float: left;
+		}
+	</style>
+</head>
+<body>
+
+<h5>Randy Quindai<br>Teoria dos Jogos (MiniMax Jogo da Velha (TicTacToe) - 2019<br>Prof. Roberta</h5>
+	<div class="canvas-wrapper">
+		<canvas id="jogo">
+			
+		</canvas>
+	</div>
+	
+	
+	<script>
+
+var auxTab = [[0,1,2],[3,4,5],[6,7,8]];
+var board = matToVector(auxTab);
+//['X', 'O', 'X', 3, 'X', 'O', 'O', 7, 8];
+var huPlayer = "O";
+var aiPlayer = "X";
+var lineColor = "#ddd";
+var sectionSize = 400 / 3; //canvas size 400x400px
+var playerH = true;
+var gameStatus = true;
+var tabuleiro = document.createElement('p');
+var iter = 0;
+var round = 0;
+var aiCo = "white";
+var huCo = "#333";
+
+var canvas = document.getElementById("jogo"); 
+		canvas.width= 400;
+		canvas.height= 400;
+		canvas.ctx = canvas.getContext("2d");
+		canvas.ctx.translate(0.5, 0.5);
+
+// Register events on canvas
+	canvas.addEventListener('mouseup', (event)=>{ drawOn(event); });
+	canvas.addEventListener('touchleave', (event)=>{ drawOn(event);	});
+
+	//call function drawBoard
+	drawBoard(canvas.ctx, 4, lineColor);
+	document.body.appendChild(tabuleiro);
+
+//****** Board drawing
+
+	function drawOn(event){
+		drawPlayerChoice(getMousePosition(event));
+
+//debugger;
+		if ( !board.some(i => typeof i === 'number') ) {
+			gameStatus = false;
+		} else if (gameStatus)
+			aiTurn(auxTab);
+		
+		escreveTabuleiro();
+		if (winning(board, 'X')){
+			tabuleiro.innerHTML += '<br><br>Você venceu.';
+			gameStatus = false;
+		}
+		else if (winning(board, 'O')){
+			tabuleiro.innerHTML += '<br><br>Computador venceu.';
+			gameStatus = false;
+		}
+		else if (!gameStatus)
+			tabuleiro.innerHTML += '<br><br>Empate.';
+	}
+
+		function drawBoard(ctx, lwidth, strokeStyle){
+			let lStart = 4; 	 	// position to start drawing lines
+			let llength = 400-10; 	//line length
+			ctx.lineWidth = lwidth;
+			ctx.lineCap = 'round';
+			ctx.strokeStyle = strokeStyle; // line color
+			ctx.beginPath();
+			// horizontal lines
+				for (i = 1; i <= 2; ++i) {
+					ctx.moveTo(lStart, i*sectionSize);
+					ctx.lineTo(llength, i*sectionSize);
+				}
+			
+			//vertical lines
+				for (i = 1; i <= 2; ++i) {
+					ctx.moveTo(i*sectionSize, lStart);
+					ctx.lineTo(i*sectionSize, llength);
+				}
+			ctx.stroke();
+		}
+
+		// draws X or 0
+		function drawPlayerChoice(mouse){
+			let xCor, yCor;
+			if (gameStatus)
+				for(i = 0; i<3; ++i)
+					for(j = 0; j<3; ++j){
+						xCor = i*sectionSize;
+						yCor = j*sectionSize;
+
+						if(mouse.x >= xCor && mouse.x <= xCor+sectionSize && mouse.y >= yCor && mouse.y <= yCor+sectionSize) {
+						//	if (auxTab[(yCor/133)>>0][(xCor/133)>>0] === -1){
+								clearSection(xCor, yCor);
+								
+								auxTab[(yCor/133)>>0][(xCor/133)>>0] = ( playerH===true ? drawX(xCor, yCor) : draw0(xCor, yCor) );
+						
+							//	auxTab[(yCor/133)>>0][(xCor/133)>>0] = ( player===true ? drawX(xCor, yCor) : draw0(xCor, yCor) );
+								if(playerH===true) drawX(xCor, yCor);
+								// else draw0(xCor, yCor);
+								playerH = !playerH;
+								board=matToVector(auxTab);
+						//	}
+						}
+					}
+		}
+
+
+function drawX(xCor, yCor){
+			let ctx = canvas.ctx;
+			let offset = 50;
+			let secOffset = sectionSize - offset;
+			ctx.strokeStyle = "#f1be32";
+			ctx.beginPath()
+				ctx.moveTo(xCor + offset, yCor+offset);
+				ctx.lineTo(xCor+secOffset, yCor+secOffset);
+
+				ctx.moveTo(xCor+offset, yCor+secOffset);
+				ctx.lineTo(xCor+secOffset,yCor+offset)
+			ctx.stroke();
+			return 'X';
+		}
+
+		function draw0(xCor, yCor){
+			let ctx = canvas.ctx;
+			let halfSec = 0.5*sectionSize;
+			let centerX = xCor + halfSec;
+			let centerY = yCor + halfSec;
+			let radius = (sectionSize - 100)/2;
+			let startAngle = 0;
+			let endAngle = 2* Math.PI;
+			ctx.strokeStyle = "#01bBC2";
+
+			ctx.beginPath();
+			ctx.arc(centerX, centerY, radius, startAngle, endAngle);
+			ctx.stroke();
+			return 'O';
+		}
+
+		function clearSection(xCor, yCor){
+			let ctx = canvas.ctx;
+			ctx.fillStyle = '#fff';
+			ctx.fillRect(xCor+5, yCor+5, sectionSize - 10, sectionSize-10);
+		}
+
+		function getMousePosition(e){
+			let rect = canvas.getBoundingClientRect();
+			return {
+				x: Math.round(e.clientX - rect.left),
+				y: Math.round(e.clientY - rect.top)
+			}
+		}
+
+function escreveTabuleiro(){
+	let i, j;
+	tabuleiro.innerHTML = '';
+	for(i = 0; i<3; ++i){
+		for(j = 0; j<3; ++j){
+			tabuleiro.innerHTML += "  "+ auxTab[i][j] +"   |";
+		}
+		tabuleiro.innerHTML += '<br>';
+		for(j = 0; j<3; ++j){
+			tabuleiro.innerHTML += "---"
+			if (j <= 2) tabuleiro.innerHTML += "|";
+		}
+		tabuleiro.innerHTML += '<br>';
+	}
+}
+
+function aiTurn(b){
+	
+	let pos = posVectorToPosMat( minimax(board, "O").index );  
+	let x = pos.j*133.33333333333334, y = pos.i*133.33333333333334;
+	//debugger;
+	auxTab[pos.i][pos.j] =  draw0(x, y) ;
+	board = matToVector(b);
+	playerH = !playerH;
+	//draw0(, );
+}
+
+//AI Logic
+
+function matToVector(b){
+	let v = [];
+	for( i = 0; i < 3; ++i ) 
+			for (j = 0; j < 3; ++j)
+				v[i*3 + j] = auxTab[i][j];
+	return v;
+}
+
+function posVectorToPosMat(num){
+	for( i = 0; i < 3; ++i ) 
+		for (j = 0; j < 3; ++j)
+			if((i*3 +j) == num) return{i,j};
+}	
+
+function move(element, player, color) {
+  console.log("element"+ element.id);
+  if (board[element.id] != "X" && board[element.id] != "O") {
+    round++;
+    $(element).css("background-color", color);
+    board[element.id] = player;
+    console.log(board);
+
+    if (winning(board, player)) {
+      setTimeout(function() {
+        alert("YOU WIN");
+        reset();
+      }, 500);
+      return;
+    } else if (round > 8) {
+      setTimeout(function() {
+        alert("TIE");
+        reset();
+      }, 500);
+      return;
+    } else {
+      round++;
+      var index = minimax(board, aiPlayer).index;
+      var selector = "#" + index;
+      $(selector).css("background-color", aiCo);
+      board[index] = aiPlayer;
+      console.log(board);
+      console.log(index);
+      if (winning(board, aiPlayer)) {
+        setTimeout(function() {
+          alert("YOU LOSE");
+          reset();
+        }, 500);
+        return;
+      } else if (round === 0) {
+        setTimeout(function() {
+          alert("tie");
+          reset();
+        }, 500);
+        return;
+      }
+    }
+  }
+}
+
+
+function minimax(reboard, player) {
+  iter++;
+  let array = avail(reboard);
+  if (winning(reboard, huPlayer)) {
+    return {
+      score: -10
+    };
+  } else if (winning(reboard, aiPlayer)) {
+    return {
+      score: 10
+    };
+  } else if (array.length === 0) {
+    return {
+      score: 0
+    };
+  }
+
+  var moves = [];
+  for (var i = 0; i < array.length; i++) {
+    var move = {};
+    move.index = reboard[array[i]];
+    reboard[array[i]] = player;
+
+    if (player == aiPlayer) {
+      var g = minimax(reboard, huPlayer);
+      move.score = g.score;
+    } else {
+      var g = minimax(reboard, aiPlayer);
+      move.score = g.score;
+    }
+    reboard[array[i]] = move.index;
+    moves.push(move);
+  }
+
+  var bestMove;
+  if (player === aiPlayer) {
+    var bestScore = -10000;
+    for (var i = 0; i < moves.length; i++) {
+      if (moves[i].score > bestScore) {
+        bestScore = moves[i].score;
+        bestMove = i;
+      }
+    }
+  } else {
+    var bestScore = 10000;
+    for (var i = 0; i < moves.length; i++) {
+      if (moves[i].score < bestScore) {
+        bestScore = moves[i].score;
+        bestMove = i;
+      }
+    }
+  }
+  return moves[bestMove];
+}
+
+//available spots
+function avail(reboard) {
+  return reboard.filter(s => s != "X" && s != "O");
+}
+
+// winning combinations
+function winning(board, player) {
+  if (
+    (board[0] == player && board[1] == player && board[2] == player) ||
+    (board[3] == player && board[4] == player && board[5] == player) ||
+    (board[6] == player && board[7] == player && board[8] == player) ||
+    (board[0] == player && board[3] == player && board[6] == player) ||
+    (board[1] == player && board[4] == player && board[7] == player) ||
+    (board[2] == player && board[5] == player && board[8] == player) ||
+    (board[0] == player && board[4] == player && board[8] == player) ||
+    (board[2] == player && board[4] == player && board[6] == player)
+  ) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
+	</script>
+</body>
+</html>
