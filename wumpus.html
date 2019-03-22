@@ -71,8 +71,8 @@
 				 	updateActions();
 				} else{ // next moves
 					updatePercepts();
-					if (!agent.gold){
-						
+					checkStatus();
+					if (agent.gold == false){
 						let auxL = steps.length-1;
 						do{
 
