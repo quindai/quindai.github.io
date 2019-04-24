@@ -1,0 +1,1571 @@
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Coverage report</title>
+    <link rel="stylesheet" href="style.css" type="text/css">
+    
+    <script type="text/javascript" src="jquery.min.js"></script>
+    <script type="text/javascript" src="jquery.ba-throttle-debounce.min.js"></script>
+    <script type="text/javascript" src="jquery.tablesorter.min.js"></script>
+    <script type="text/javascript" src="jquery.hotkeys.js"></script>
+    <script type="text/javascript" src="coverage_html.js"></script>
+    <script type="text/javascript">
+        jQuery(document).ready(coverage.index_ready);
+    </script>
+</head>
+<body class="indexfile">
+
+<div id="header">
+    <div class="content">
+        <h1>Coverage report:
+            <span class="pc_cov">30%</span>
+        </h1>
+
+        <img id="keyboard_icon" src="keybd_closed.png" alt="Show keyboard shortcuts" />
+
+        <form id="filter_container">
+            <input id="filter" type="text" value="" placeholder="filter..." />
+        </form>
+    </div>
+</div>
+
+<div class="help_panel">
+    <img id="panel_icon" src="keybd_open.png" alt="Hide keyboard shortcuts" />
+    <p class="legend">Hot-keys on this page</p>
+    <div>
+    <p class="keyhelp">
+        <span class="key">n</span>
+        <span class="key">s</span>
+        <span class="key">m</span>
+        <span class="key">x</span>
+        
+        <span class="key">c</span> &nbsp; change column sorting
+    </p>
+    </div>
+</div>
+
+<div id="index">
+    <table class="index">
+        <thead>
+            
+            <tr class="tablehead" title="Click to sort">
+                <th class="name left headerSortDown shortkey_n">Module</th>
+                <th class="shortkey_s">statements</th>
+                <th class="shortkey_m">missing</th>
+                <th class="shortkey_x">excluded</th>
+                
+                <th class="right shortkey_c">coverage</th>
+            </tr>
+        </thead>
+        
+        <tfoot>
+            <tr class="total">
+                <td class="name left">Total</td>
+                <td>5459</td>
+                <td>3844</td>
+                <td>0</td>
+                
+                <td class="right" data-ratio="1615 5459">30%</td>
+            </tr>
+        </tfoot>
+        <tbody>
+            
+            <tr class="file">
+                <td class="name left"><a href="base_admin_py.html">base/admin.py</a></td>
+                <td>131</td>
+                <td>59</td>
+                <td>0</td>
+                
+                <td class="right" data-ratio="72 131">55%</td>
+            </tr>
+            
+            <tr class="file">
+                <td class="name left"><a href="base_admin_forms_py.html">base/admin_forms.py</a></td>
+                <td>44</td>
+                <td>21</td>
+                <td>0</td>
+                
+                <td class="right" data-ratio="23 44">52%</td>
+            </tr>
+            
+            <tr class="file">
+                <td class="name left"><a href="base_apps_py.html">base/apps.py</a></td>
+                <td>3</td>
+                <td>0</td>
+                <td>0</td>
+                
+                <td class="right" data-ratio="3 3">100%</td>
+            </tr>
+            
+            <tr class="file">
+                <td class="name left"><a href="base_dashboard_py.html">base/dashboard.py</a></td>
+                <td>48</td>
+                <td>48</td>
+                <td>0</td>
+                
+                <td class="right" data-ratio="0 48">0%</td>
+            </tr>
+            
+            <tr class="file">
+                <td class="name left"><a href="base_dashboard_modules_py.html">base/dashboard_modules.py</a></td>
+                <td>105</td>
+                <td>105</td>
+                <td>0</td>
+                
+                <td class="right" data-ratio="0 105">0%</td>
+            </tr>
+            
+            <tr class="file">
+                <td class="name left"><a href="base_forms_user_forms_py.html">base/forms/user_forms.py</a></td>
+                <td>31</td>
+                <td>12</td>
+                <td>0</td>
+                
+                <td class="right" data-ratio="19 31">61%</td>
+            </tr>
+            
+            <tr class="file">
+                <td class="name left"><a href="base_migrations_0001_initial_py.html">base/migrations/0001_initial.py</a></td>
+                <td>9</td>
+                <td>9</td>
+                <td>0</td>
+                
+                <td class="right" data-ratio="0 9">0%</td>
+            </tr>
+            
+            <tr class="file">
+                <td class="name left"><a href="base_models_cadastro_py.html">base/models/cadastro.py</a></td>
+                <td>20</td>
+                <td>2</td>
+                <td>0</td>
+                
+                <td class="right" data-ratio="18 20">90%</td>
+            </tr>
+            
+            <tr class="file">
+                <td class="name left"><a href="base_models_fiscal_py.html">base/models/fiscal.py</a></td>
+                <td>8</td>
+                <td>8</td>
+                <td>0</td>
+                
+                <td class="right" data-ratio="0 8">0%</td>
+            </tr>
+            
+            <tr class="file">
+                <td class="name left"><a href="base_models_item_py.html">base/models/item.py</a></td>
+                <td>53</td>
+                <td>2</td>
+                <td>0</td>
+                
+                <td class="right" data-ratio="51 53">96%</td>
+            </tr>
+            
+            <tr class="file">
+                <td class="name left"><a href="base_models_ncm_py.html">base/models/ncm.py</a></td>
+                <td>21</td>
+                <td>2</td>
+                <td>0</td>
+                
+                <td class="right" data-ratio="19 21">90%</td>
+            </tr>
+            
+            <tr class="file">
+                <td class="name left"><a href="base_models_nota_fiscal_eletronica_py.html">base/models/nota_fiscal_eletronica.py</a></td>
+                <td>208</td>
+                <td>161</td>
+                <td>0</td>
+                
+                <td class="right" data-ratio="47 208">23%</td>
+            </tr>
+            
+            <tr class="file">
+                <td class="name left"><a href="base_models_user_py.html">base/models/user.py</a></td>
+                <td>67</td>
+                <td>31</td>
+                <td>0</td>
+                
+                <td class="right" data-ratio="36 67">54%</td>
+            </tr>
+            
+            <tr class="file">
+                <td class="name left"><a href="base_serializers_cadastro_serializer_py.html">base/serializers/cadastro_serializer.py</a></td>
+                <td>18</td>
+                <td>8</td>
+                <td>0</td>
+                
+                <td class="right" data-ratio="10 18">56%</td>
+            </tr>
+            
+            <tr class="file">
+                <td class="name left"><a href="base_serializers_item_serializer_py.html">base/serializers/item_serializer.py</a></td>
+                <td>45</td>
+                <td>37</td>
+                <td>0</td>
+                
+                <td class="right" data-ratio="8 45">18%</td>
+            </tr>
+            
+            <tr class="file">
+                <td class="name left"><a href="base_serializers_nfe_serializer_py.html">base/serializers/nfe_serializer.py</a></td>
+                <td>29</td>
+                <td>18</td>
+                <td>0</td>
+                
+                <td class="right" data-ratio="11 29">38%</td>
+            </tr>
+            
+            <tr class="file">
+                <td class="name left"><a href="base_serializers_user_serializer_py.html">base/serializers/user_serializer.py</a></td>
+                <td>6</td>
+                <td>0</td>
+                <td>0</td>
+                
+                <td class="right" data-ratio="6 6">100%</td>
+            </tr>
+            
+            <tr class="file">
+                <td class="name left"><a href="base_tests_models_test_cadastro_model_py.html">base/tests/models/test_cadastro_model.py</a></td>
+                <td>9</td>
+                <td>3</td>
+                <td>0</td>
+                
+                <td class="right" data-ratio="6 9">67%</td>
+            </tr>
+            
+            <tr class="file">
+                <td class="name left"><a href="base_tests_models_test_item_model_py.html">base/tests/models/test_item_model.py</a></td>
+                <td>14</td>
+                <td>7</td>
+                <td>0</td>
+                
+                <td class="right" data-ratio="7 14">50%</td>
+            </tr>
+            
+            <tr class="file">
+                <td class="name left"><a href="base_tests_models_test_ncm_model_py.html">base/tests/models/test_ncm_model.py</a></td>
+                <td>7</td>
+                <td>1</td>
+                <td>0</td>
+                
+                <td class="right" data-ratio="6 7">86%</td>
+            </tr>
+            
+            <tr class="file">
+                <td class="name left"><a href="base_tests_models_test_nfe_model_py.html">base/tests/models/test_nfe_model.py</a></td>
+                <td>17</td>
+                <td>8</td>
+                <td>0</td>
+                
+                <td class="right" data-ratio="9 17">53%</td>
+            </tr>
+            
+            <tr class="file">
+                <td class="name left"><a href="base_tests_views_test_cadastro_views_py.html">base/tests/views/test_cadastro_views.py</a></td>
+                <td>73</td>
+                <td>41</td>
+                <td>0</td>
+                
+                <td class="right" data-ratio="32 73">44%</td>
+            </tr>
+            
+            <tr class="file">
+                <td class="name left"><a href="base_tests_views_test_item_views_py.html">base/tests/views/test_item_views.py</a></td>
+                <td>91</td>
+                <td>58</td>
+                <td>0</td>
+                
+                <td class="right" data-ratio="33 91">36%</td>
+            </tr>
+            
+            <tr class="file">
+                <td class="name left"><a href="base_tests_views_test_nfe_items_classificados_views_py.html">base/tests/views/test_nfe_items_classificados_views.py</a></td>
+                <td>19</td>
+                <td>6</td>
+                <td>0</td>
+                
+                <td class="right" data-ratio="13 19">68%</td>
+            </tr>
+            
+            <tr class="file">
+                <td class="name left"><a href="base_tests_views_test_nfe_views_py.html">base/tests/views/test_nfe_views.py</a></td>
+                <td>82</td>
+                <td>49</td>
+                <td>0</td>
+                
+                <td class="right" data-ratio="33 82">40%</td>
+            </tr>
+            
+            <tr class="file">
+                <td class="name left"><a href="base_tests_views_test_user_views_py.html">base/tests/views/test_user_views.py</a></td>
+                <td>22</td>
+                <td>10</td>
+                <td>0</td>
+                
+                <td class="right" data-ratio="12 22">55%</td>
+            </tr>
+            
+            <tr class="file">
+                <td class="name left"><a href="base_urls_py.html">base/urls.py</a></td>
+                <td>7</td>
+                <td>0</td>
+                <td>0</td>
+                
+                <td class="right" data-ratio="7 7">100%</td>
+            </tr>
+            
+            <tr class="file">
+                <td class="name left"><a href="base_views_api_cadastro_views_py.html">base/views/api/cadastro_views.py</a></td>
+                <td>36</td>
+                <td>27</td>
+                <td>0</td>
+                
+                <td class="right" data-ratio="9 36">25%</td>
+            </tr>
+            
+            <tr class="file">
+                <td class="name left"><a href="base_views_api_item_views_py.html">base/views/api/item_views.py</a></td>
+                <td>9</td>
+                <td>0</td>
+                <td>0</td>
+                
+                <td class="right" data-ratio="9 9">100%</td>
+            </tr>
+            
+            <tr class="file">
+                <td class="name left"><a href="base_views_api_nfe_items_classificados_views_py.html">base/views/api/nfe_items_classificados_views.py</a></td>
+                <td>49</td>
+                <td>36</td>
+                <td>0</td>
+                
+                <td class="right" data-ratio="13 49">27%</td>
+            </tr>
+            
+            <tr class="file">
+                <td class="name left"><a href="base_views_api_nfe_resumos_py.html">base/views/api/nfe_resumos.py</a></td>
+                <td>96</td>
+                <td>89</td>
+                <td>0</td>
+                
+                <td class="right" data-ratio="7 96">7%</td>
+            </tr>
+            
+            <tr class="file">
+                <td class="name left"><a href="base_views_api_nfe_views_py.html">base/views/api/nfe_views.py</a></td>
+                <td>9</td>
+                <td>0</td>
+                <td>0</td>
+                
+                <td class="right" data-ratio="9 9">100%</td>
+            </tr>
+            
+            <tr class="file">
+                <td class="name left"><a href="calculadord_py.html">calculadord.py</a></td>
+                <td>92</td>
+                <td>92</td>
+                <td>0</td>
+                
+                <td class="right" data-ratio="0 92">0%</td>
+            </tr>
+            
+            <tr class="file">
+                <td class="name left"><a href="calculo_admin_py.html">calculo/admin.py</a></td>
+                <td>358</td>
+                <td>188</td>
+                <td>0</td>
+                
+                <td class="right" data-ratio="170 358">47%</td>
+            </tr>
+            
+            <tr class="file">
+                <td class="name left"><a href="calculo_apps_py.html">calculo/apps.py</a></td>
+                <td>5</td>
+                <td>0</td>
+                <td>0</td>
+                
+                <td class="right" data-ratio="5 5">100%</td>
+            </tr>
+            
+            <tr class="file">
+                <td class="name left"><a href="calculo_celery_py.html">calculo/celery.py</a></td>
+                <td>14</td>
+                <td>2</td>
+                <td>0</td>
+                
+                <td class="right" data-ratio="12 14">86%</td>
+            </tr>
+            
+            <tr class="file">
+                <td class="name left"><a href="calculo_forms_AtualizarRegrasForm_py.html">calculo/forms/AtualizarRegrasForm.py</a></td>
+                <td>30</td>
+                <td>19</td>
+                <td>0</td>
+                
+                <td class="right" data-ratio="11 30">37%</td>
+            </tr>
+            
+            <tr class="file">
+                <td class="name left"><a href="calculo_forms_BuscarCNPJForm_py.html">calculo/forms/BuscarCNPJForm.py</a></td>
+                <td>9</td>
+                <td>0</td>
+                <td>0</td>
+                
+                <td class="right" data-ratio="9 9">100%</td>
+            </tr>
+            
+            <tr class="file">
+                <td class="name left"><a href="calculo_forms_BuscarNotaForm_py.html">calculo/forms/BuscarNotaForm.py</a></td>
+                <td>3</td>
+                <td>0</td>
+                <td>0</td>
+                
+                <td class="right" data-ratio="3 3">100%</td>
+            </tr>
+            
+            <tr class="file">
+                <td class="name left"><a href="calculo_forms_ExecutarClusterForm_py.html">calculo/forms/ExecutarClusterForm.py</a></td>
+                <td>7</td>
+                <td>0</td>
+                <td>0</td>
+                
+                <td class="right" data-ratio="7 7">100%</td>
+            </tr>
+            
+            <tr class="file">
+                <td class="name left"><a href="calculo_forms_ImportaDadosTeste_py.html">calculo/forms/ImportaDadosTeste.py</a></td>
+                <td>36</td>
+                <td>20</td>
+                <td>0</td>
+                
+                <td class="right" data-ratio="16 36">44%</td>
+            </tr>
+            
+            <tr class="file">
+                <td class="name left"><a href="calculo_importador_xls2regras_py.html">calculo/importador/xls2regras.py</a></td>
+                <td>112</td>
+                <td>87</td>
+                <td>0</td>
+                
+                <td class="right" data-ratio="25 112">22%</td>
+            </tr>
+            
+            <tr class="file">
+                <td class="name left"><a href="calculo_migrations_0001_initial_py.html">calculo/migrations/0001_initial.py</a></td>
+                <td>7</td>
+                <td>7</td>
+                <td>0</td>
+                
+                <td class="right" data-ratio="0 7">0%</td>
+            </tr>
+            
+            <tr class="file">
+                <td class="name left"><a href="calculo_models_atributo_py.html">calculo/models/atributo.py</a></td>
+                <td>13</td>
+                <td>1</td>
+                <td>0</td>
+                
+                <td class="right" data-ratio="12 13">92%</td>
+            </tr>
+            
+            <tr class="file">
+                <td class="name left"><a href="calculo_models_campoCampo_py.html">calculo/models/campoCampo.py</a></td>
+                <td>38</td>
+                <td>22</td>
+                <td>0</td>
+                
+                <td class="right" data-ratio="16 38">42%</td>
+            </tr>
+            
+            <tr class="file">
+                <td class="name left"><a href="calculo_models_campoRegra_py.html">calculo/models/campoRegra.py</a></td>
+                <td>18</td>
+                <td>4</td>
+                <td>0</td>
+                
+                <td class="right" data-ratio="14 18">78%</td>
+            </tr>
+            
+            <tr class="file">
+                <td class="name left"><a href="calculo_models_campoTabela_py.html">calculo/models/campoTabela.py</a></td>
+                <td>23</td>
+                <td>8</td>
+                <td>0</td>
+                
+                <td class="right" data-ratio="15 23">65%</td>
+            </tr>
+            
+            <tr class="file">
+                <td class="name left"><a href="calculo_models_campoValor_py.html">calculo/models/campoValor.py</a></td>
+                <td>43</td>
+                <td>29</td>
+                <td>0</td>
+                
+                <td class="right" data-ratio="14 43">33%</td>
+            </tr>
+            
+            <tr class="file">
+                <td class="name left"><a href="calculo_models_classificacao_py.html">calculo/models/classificacao.py</a></td>
+                <td>21</td>
+                <td>1</td>
+                <td>0</td>
+                
+                <td class="right" data-ratio="20 21">95%</td>
+            </tr>
+            
+            <tr class="file">
+                <td class="name left"><a href="calculo_models_classificacaoEsperada_py.html">calculo/models/classificacaoEsperada.py</a></td>
+                <td>14</td>
+                <td>1</td>
+                <td>0</td>
+                
+                <td class="right" data-ratio="13 14">93%</td>
+            </tr>
+            
+            <tr class="file">
+                <td class="name left"><a href="calculo_models_cluster_py.html">calculo/models/cluster.py</a></td>
+                <td>8</td>
+                <td>1</td>
+                <td>0</td>
+                
+                <td class="right" data-ratio="7 8">88%</td>
+            </tr>
+            
+            <tr class="file">
+                <td class="name left"><a href="calculo_models_contestacao_py.html">calculo/models/contestacao.py</a></td>
+                <td>15</td>
+                <td>1</td>
+                <td>0</td>
+                
+                <td class="right" data-ratio="14 15">93%</td>
+            </tr>
+            
+            <tr class="file">
+                <td class="name left"><a href="calculo_models_correcao_py.html">calculo/models/correcao.py</a></td>
+                <td>12</td>
+                <td>0</td>
+                <td>0</td>
+                
+                <td class="right" data-ratio="12 12">100%</td>
+            </tr>
+            
+            <tr class="file">
+                <td class="name left"><a href="calculo_models_dadosTabela_py.html">calculo/models/dadosTabela.py</a></td>
+                <td>12</td>
+                <td>1</td>
+                <td>0</td>
+                
+                <td class="right" data-ratio="11 12">92%</td>
+            </tr>
+            
+            <tr class="file">
+                <td class="name left"><a href="calculo_models_estado_py.html">calculo/models/estado.py</a></td>
+                <td>17</td>
+                <td>1</td>
+                <td>0</td>
+                
+                <td class="right" data-ratio="16 17">94%</td>
+            </tr>
+            
+            <tr class="file">
+                <td class="name left"><a href="calculo_models_estadoSaidaOpt_py.html">calculo/models/estadoSaidaOpt.py</a></td>
+                <td>11</td>
+                <td>1</td>
+                <td>0</td>
+                
+                <td class="right" data-ratio="10 11">91%</td>
+            </tr>
+            
+            <tr class="file">
+                <td class="name left"><a href="calculo_models_imposto_py.html">calculo/models/imposto.py</a></td>
+                <td>17</td>
+                <td>1</td>
+                <td>0</td>
+                
+                <td class="right" data-ratio="16 17">94%</td>
+            </tr>
+            
+            <tr class="file">
+                <td class="name left"><a href="calculo_models_regra_py.html">calculo/models/regra.py</a></td>
+                <td>57</td>
+                <td>27</td>
+                <td>0</td>
+                
+                <td class="right" data-ratio="30 57">53%</td>
+            </tr>
+            
+            <tr class="file">
+                <td class="name left"><a href="calculo_models_simplesTexto_py.html">calculo/models/simplesTexto.py</a></td>
+                <td>24</td>
+                <td>9</td>
+                <td>0</td>
+                
+                <td class="right" data-ratio="15 24">62%</td>
+            </tr>
+            
+            <tr class="file">
+                <td class="name left"><a href="calculo_models_tabela_py.html">calculo/models/tabela.py</a></td>
+                <td>12</td>
+                <td>1</td>
+                <td>0</td>
+                
+                <td class="right" data-ratio="11 12">92%</td>
+            </tr>
+            
+            <tr class="file">
+                <td class="name left"><a href="calculo_models_verificador_py.html">calculo/models/verificador.py</a></td>
+                <td>31</td>
+                <td>17</td>
+                <td>0</td>
+                
+                <td class="right" data-ratio="14 31">45%</td>
+            </tr>
+            
+            <tr class="file">
+                <td class="name left"><a href="calculo_models_verificadorCaceal_py.html">calculo/models/verificadorCaceal.py</a></td>
+                <td>54</td>
+                <td>35</td>
+                <td>0</td>
+                
+                <td class="right" data-ratio="19 54">35%</td>
+            </tr>
+            
+            <tr class="file">
+                <td class="name left"><a href="calculo_models_verificadorCnae_py.html">calculo/models/verificadorCnae.py</a></td>
+                <td>39</td>
+                <td>18</td>
+                <td>0</td>
+                
+                <td class="right" data-ratio="21 39">54%</td>
+            </tr>
+            
+            <tr class="file">
+                <td class="name left"><a href="calculo_models_verificadorSignatario_py.html">calculo/models/verificadorSignatario.py</a></td>
+                <td>24</td>
+                <td>10</td>
+                <td>0</td>
+                
+                <td class="right" data-ratio="14 24">58%</td>
+            </tr>
+            
+            <tr class="file">
+                <td class="name left"><a href="calculo_serializers_atributo_serializer_py.html">calculo/serializers/atributo_serializer.py</a></td>
+                <td>14</td>
+                <td>5</td>
+                <td>0</td>
+                
+                <td class="right" data-ratio="9 14">64%</td>
+            </tr>
+            
+            <tr class="file">
+                <td class="name left"><a href="calculo_serializers_campo_campo_serializer_py.html">calculo/serializers/campo_campo_serializer.py</a></td>
+                <td>18</td>
+                <td>9</td>
+                <td>0</td>
+                
+                <td class="right" data-ratio="9 18">50%</td>
+            </tr>
+            
+            <tr class="file">
+                <td class="name left"><a href="calculo_serializers_campo_regra_serializer_py.html">calculo/serializers/campo_regra_serializer.py</a></td>
+                <td>15</td>
+                <td>6</td>
+                <td>0</td>
+                
+                <td class="right" data-ratio="9 15">60%</td>
+            </tr>
+            
+            <tr class="file">
+                <td class="name left"><a href="calculo_serializers_campo_tabela_serializer_py.html">calculo/serializers/campo_tabela_serializer.py</a></td>
+                <td>17</td>
+                <td>8</td>
+                <td>0</td>
+                
+                <td class="right" data-ratio="9 17">53%</td>
+            </tr>
+            
+            <tr class="file">
+                <td class="name left"><a href="calculo_serializers_campo_valor_serializer_py.html">calculo/serializers/campo_valor_serializer.py</a></td>
+                <td>17</td>
+                <td>8</td>
+                <td>0</td>
+                
+                <td class="right" data-ratio="9 17">53%</td>
+            </tr>
+            
+            <tr class="file">
+                <td class="name left"><a href="calculo_serializers_classificacao_esperada_serializer_py.html">calculo/serializers/classificacao_esperada_serializer.py</a></td>
+                <td>14</td>
+                <td>5</td>
+                <td>0</td>
+                
+                <td class="right" data-ratio="9 14">64%</td>
+            </tr>
+            
+            <tr class="file">
+                <td class="name left"><a href="calculo_serializers_classificacao_serializer_py.html">calculo/serializers/classificacao_serializer.py</a></td>
+                <td>19</td>
+                <td>10</td>
+                <td>0</td>
+                
+                <td class="right" data-ratio="9 19">47%</td>
+            </tr>
+            
+            <tr class="file">
+                <td class="name left"><a href="calculo_serializers_contestacao_serializer_py.html">calculo/serializers/contestacao_serializer.py</a></td>
+                <td>29</td>
+                <td>19</td>
+                <td>0</td>
+                
+                <td class="right" data-ratio="10 29">34%</td>
+            </tr>
+            
+            <tr class="file">
+                <td class="name left"><a href="calculo_serializers_correcao_serializer_py.html">calculo/serializers/correcao_serializer.py</a></td>
+                <td>16</td>
+                <td>7</td>
+                <td>0</td>
+                
+                <td class="right" data-ratio="9 16">56%</td>
+            </tr>
+            
+            <tr class="file">
+                <td class="name left"><a href="calculo_serializers_dados_tabela_serializer_py.html">calculo/serializers/dados_tabela_serializer.py</a></td>
+                <td>14</td>
+                <td>5</td>
+                <td>0</td>
+                
+                <td class="right" data-ratio="9 14">64%</td>
+            </tr>
+            
+            <tr class="file">
+                <td class="name left"><a href="calculo_serializers_estado_saida_opt_serializer_py.html">calculo/serializers/estado_saida_opt_serializer.py</a></td>
+                <td>14</td>
+                <td>5</td>
+                <td>0</td>
+                
+                <td class="right" data-ratio="9 14">64%</td>
+            </tr>
+            
+            <tr class="file">
+                <td class="name left"><a href="calculo_serializers_estado_serializer_py.html">calculo/serializers/estado_serializer.py</a></td>
+                <td>20</td>
+                <td>11</td>
+                <td>0</td>
+                
+                <td class="right" data-ratio="9 20">45%</td>
+            </tr>
+            
+            <tr class="file">
+                <td class="name left"><a href="calculo_serializers_imposto_serializer_py.html">calculo/serializers/imposto_serializer.py</a></td>
+                <td>16</td>
+                <td>7</td>
+                <td>0</td>
+                
+                <td class="right" data-ratio="9 16">56%</td>
+            </tr>
+            
+            <tr class="file">
+                <td class="name left"><a href="calculo_serializers_regra_serializer_py.html">calculo/serializers/regra_serializer.py</a></td>
+                <td>24</td>
+                <td>15</td>
+                <td>0</td>
+                
+                <td class="right" data-ratio="9 24">38%</td>
+            </tr>
+            
+            <tr class="file">
+                <td class="name left"><a href="calculo_serializers_simples_texto_serializer_py.html">calculo/serializers/simples_texto_serializer.py</a></td>
+                <td>17</td>
+                <td>8</td>
+                <td>0</td>
+                
+                <td class="right" data-ratio="9 17">53%</td>
+            </tr>
+            
+            <tr class="file">
+                <td class="name left"><a href="calculo_serializers_tabela_serializer_py.html">calculo/serializers/tabela_serializer.py</a></td>
+                <td>14</td>
+                <td>5</td>
+                <td>0</td>
+                
+                <td class="right" data-ratio="9 14">64%</td>
+            </tr>
+            
+            <tr class="file">
+                <td class="name left"><a href="calculo_serializers_verificador_caceal_serializer_py.html">calculo/serializers/verificador_caceal_serializer.py</a></td>
+                <td>17</td>
+                <td>8</td>
+                <td>0</td>
+                
+                <td class="right" data-ratio="9 17">53%</td>
+            </tr>
+            
+            <tr class="file">
+                <td class="name left"><a href="calculo_serializers_verificador_cnae_serializer_py.html">calculo/serializers/verificador_cnae_serializer.py</a></td>
+                <td>17</td>
+                <td>8</td>
+                <td>0</td>
+                
+                <td class="right" data-ratio="9 17">53%</td>
+            </tr>
+            
+            <tr class="file">
+                <td class="name left"><a href="calculo_signals_py.html">calculo/signals.py</a></td>
+                <td>8</td>
+                <td>2</td>
+                <td>0</td>
+                
+                <td class="right" data-ratio="6 8">75%</td>
+            </tr>
+            
+            <tr class="file">
+                <td class="name left"><a href="calculo_tasks_py.html">calculo/tasks.py</a></td>
+                <td>87</td>
+                <td>87</td>
+                <td>0</td>
+                
+                <td class="right" data-ratio="0 87">0%</td>
+            </tr>
+            
+            <tr class="file">
+                <td class="name left"><a href="calculo_tests_models_test_atributo_models_py.html">calculo/tests/models/test_atributo_models.py</a></td>
+                <td>8</td>
+                <td>8</td>
+                <td>0</td>
+                
+                <td class="right" data-ratio="0 8">0%</td>
+            </tr>
+            
+            <tr class="file">
+                <td class="name left"><a href="calculo_tests_models_test_campo_campo_models_py.html">calculo/tests/models/test_campo_campo_models.py</a></td>
+                <td>9</td>
+                <td>9</td>
+                <td>0</td>
+                
+                <td class="right" data-ratio="0 9">0%</td>
+            </tr>
+            
+            <tr class="file">
+                <td class="name left"><a href="calculo_tests_models_test_campo_regra_models_py.html">calculo/tests/models/test_campo_regra_models.py</a></td>
+                <td>9</td>
+                <td>9</td>
+                <td>0</td>
+                
+                <td class="right" data-ratio="0 9">0%</td>
+            </tr>
+            
+            <tr class="file">
+                <td class="name left"><a href="calculo_tests_models_test_campo_tabela_models_py.html">calculo/tests/models/test_campo_tabela_models.py</a></td>
+                <td>9</td>
+                <td>9</td>
+                <td>0</td>
+                
+                <td class="right" data-ratio="0 9">0%</td>
+            </tr>
+            
+            <tr class="file">
+                <td class="name left"><a href="calculo_tests_models_test_campo_valor_models_py.html">calculo/tests/models/test_campo_valor_models.py</a></td>
+                <td>9</td>
+                <td>9</td>
+                <td>0</td>
+                
+                <td class="right" data-ratio="0 9">0%</td>
+            </tr>
+            
+            <tr class="file">
+                <td class="name left"><a href="calculo_tests_models_test_classif_esperada_models_py.html">calculo/tests/models/test_classif_esperada_models.py</a></td>
+                <td>9</td>
+                <td>9</td>
+                <td>0</td>
+                
+                <td class="right" data-ratio="0 9">0%</td>
+            </tr>
+            
+            <tr class="file">
+                <td class="name left"><a href="calculo_tests_models_test_classificacao_models_py.html">calculo/tests/models/test_classificacao_models.py</a></td>
+                <td>10</td>
+                <td>10</td>
+                <td>0</td>
+                
+                <td class="right" data-ratio="0 10">0%</td>
+            </tr>
+            
+            <tr class="file">
+                <td class="name left"><a href="calculo_tests_models_test_contestacao_models_py.html">calculo/tests/models/test_contestacao_models.py</a></td>
+                <td>10</td>
+                <td>10</td>
+                <td>0</td>
+                
+                <td class="right" data-ratio="0 10">0%</td>
+            </tr>
+            
+            <tr class="file">
+                <td class="name left"><a href="calculo_tests_models_test_dados_tabela_models_py.html">calculo/tests/models/test_dados_tabela_models.py</a></td>
+                <td>8</td>
+                <td>8</td>
+                <td>0</td>
+                
+                <td class="right" data-ratio="0 8">0%</td>
+            </tr>
+            
+            <tr class="file">
+                <td class="name left"><a href="calculo_tests_models_test_estado_models_py.html">calculo/tests/models/test_estado_models.py</a></td>
+                <td>9</td>
+                <td>9</td>
+                <td>0</td>
+                
+                <td class="right" data-ratio="0 9">0%</td>
+            </tr>
+            
+            <tr class="file">
+                <td class="name left"><a href="calculo_tests_models_test_estado_saida_opt_models_py.html">calculo/tests/models/test_estado_saida_opt_models.py</a></td>
+                <td>8</td>
+                <td>8</td>
+                <td>0</td>
+                
+                <td class="right" data-ratio="0 8">0%</td>
+            </tr>
+            
+            <tr class="file">
+                <td class="name left"><a href="calculo_tests_models_test_regra_models_py.html">calculo/tests/models/test_regra_models.py</a></td>
+                <td>12</td>
+                <td>12</td>
+                <td>0</td>
+                
+                <td class="right" data-ratio="0 12">0%</td>
+            </tr>
+            
+            <tr class="file">
+                <td class="name left"><a href="calculo_tests_models_test_simples_texto_models_py.html">calculo/tests/models/test_simples_texto_models.py</a></td>
+                <td>9</td>
+                <td>9</td>
+                <td>0</td>
+                
+                <td class="right" data-ratio="0 9">0%</td>
+            </tr>
+            
+            <tr class="file">
+                <td class="name left"><a href="calculo_tests_models_test_tabela_models_py.html">calculo/tests/models/test_tabela_models.py</a></td>
+                <td>8</td>
+                <td>8</td>
+                <td>0</td>
+                
+                <td class="right" data-ratio="0 8">0%</td>
+            </tr>
+            
+            <tr class="file">
+                <td class="name left"><a href="calculo_tests_models_test_verificador_caceal_models_py.html">calculo/tests/models/test_verificador_caceal_models.py</a></td>
+                <td>9</td>
+                <td>9</td>
+                <td>0</td>
+                
+                <td class="right" data-ratio="0 9">0%</td>
+            </tr>
+            
+            <tr class="file">
+                <td class="name left"><a href="calculo_tests_models_test_verificador_cnae_models_py.html">calculo/tests/models/test_verificador_cnae_models.py</a></td>
+                <td>9</td>
+                <td>9</td>
+                <td>0</td>
+                
+                <td class="right" data-ratio="0 9">0%</td>
+            </tr>
+            
+            <tr class="file">
+                <td class="name left"><a href="calculo_tests_views_test_atributo_views_py.html">calculo/tests/views/test_atributo_views.py</a></td>
+                <td>69</td>
+                <td>69</td>
+                <td>0</td>
+                
+                <td class="right" data-ratio="0 69">0%</td>
+            </tr>
+            
+            <tr class="file">
+                <td class="name left"><a href="calculo_tests_views_test_campo_campo_views_py.html">calculo/tests/views/test_campo_campo_views.py</a></td>
+                <td>75</td>
+                <td>75</td>
+                <td>0</td>
+                
+                <td class="right" data-ratio="0 75">0%</td>
+            </tr>
+            
+            <tr class="file">
+                <td class="name left"><a href="calculo_tests_views_test_campo_regra_views_py.html">calculo/tests/views/test_campo_regra_views.py</a></td>
+                <td>75</td>
+                <td>75</td>
+                <td>0</td>
+                
+                <td class="right" data-ratio="0 75">0%</td>
+            </tr>
+            
+            <tr class="file">
+                <td class="name left"><a href="calculo_tests_views_test_campo_tabela_views_py.html">calculo/tests/views/test_campo_tabela_views.py</a></td>
+                <td>75</td>
+                <td>75</td>
+                <td>0</td>
+                
+                <td class="right" data-ratio="0 75">0%</td>
+            </tr>
+            
+            <tr class="file">
+                <td class="name left"><a href="calculo_tests_views_test_campo_valor_views_py.html">calculo/tests/views/test_campo_valor_views.py</a></td>
+                <td>75</td>
+                <td>75</td>
+                <td>0</td>
+                
+                <td class="right" data-ratio="0 75">0%</td>
+            </tr>
+            
+            <tr class="file">
+                <td class="name left"><a href="calculo_tests_views_test_classif_esperada_views_py.html">calculo/tests/views/test_classif_esperada_views.py</a></td>
+                <td>70</td>
+                <td>70</td>
+                <td>0</td>
+                
+                <td class="right" data-ratio="0 70">0%</td>
+            </tr>
+            
+            <tr class="file">
+                <td class="name left"><a href="calculo_tests_views_test_classificacao_views_py.html">calculo/tests/views/test_classificacao_views.py</a></td>
+                <td>70</td>
+                <td>70</td>
+                <td>0</td>
+                
+                <td class="right" data-ratio="0 70">0%</td>
+            </tr>
+            
+            <tr class="file">
+                <td class="name left"><a href="calculo_tests_views_test_contestacao_views_py.html">calculo/tests/views/test_contestacao_views.py</a></td>
+                <td>88</td>
+                <td>88</td>
+                <td>0</td>
+                
+                <td class="right" data-ratio="0 88">0%</td>
+            </tr>
+            
+            <tr class="file">
+                <td class="name left"><a href="calculo_tests_views_test_contestacoes_by_nfe_views_py.html">calculo/tests/views/test_contestacoes_by_nfe_views.py</a></td>
+                <td>31</td>
+                <td>31</td>
+                <td>0</td>
+                
+                <td class="right" data-ratio="0 31">0%</td>
+            </tr>
+            
+            <tr class="file">
+                <td class="name left"><a href="calculo_tests_views_test_dados_tabela_views_py.html">calculo/tests/views/test_dados_tabela_views.py</a></td>
+                <td>70</td>
+                <td>70</td>
+                <td>0</td>
+                
+                <td class="right" data-ratio="0 70">0%</td>
+            </tr>
+            
+            <tr class="file">
+                <td class="name left"><a href="calculo_tests_views_test_estado_saida_opt_views_py.html">calculo/tests/views/test_estado_saida_opt_views.py</a></td>
+                <td>70</td>
+                <td>70</td>
+                <td>0</td>
+                
+                <td class="right" data-ratio="0 70">0%</td>
+            </tr>
+            
+            <tr class="file">
+                <td class="name left"><a href="calculo_tests_views_test_estado_views_py.html">calculo/tests/views/test_estado_views.py</a></td>
+                <td>72</td>
+                <td>72</td>
+                <td>0</td>
+                
+                <td class="right" data-ratio="0 72">0%</td>
+            </tr>
+            
+            <tr class="file">
+                <td class="name left"><a href="calculo_tests_views_test_regra_views_py.html">calculo/tests/views/test_regra_views.py</a></td>
+                <td>77</td>
+                <td>77</td>
+                <td>0</td>
+                
+                <td class="right" data-ratio="0 77">0%</td>
+            </tr>
+            
+            <tr class="file">
+                <td class="name left"><a href="calculo_tests_views_test_simples_texto_views_py.html">calculo/tests/views/test_simples_texto_views.py</a></td>
+                <td>75</td>
+                <td>75</td>
+                <td>0</td>
+                
+                <td class="right" data-ratio="0 75">0%</td>
+            </tr>
+            
+            <tr class="file">
+                <td class="name left"><a href="calculo_tests_views_test_tabela_views_py.html">calculo/tests/views/test_tabela_views.py</a></td>
+                <td>70</td>
+                <td>70</td>
+                <td>0</td>
+                
+                <td class="right" data-ratio="0 70">0%</td>
+            </tr>
+            
+            <tr class="file">
+                <td class="name left"><a href="calculo_tests_views_test_verificador_caceal_views_py.html">calculo/tests/views/test_verificador_caceal_views.py</a></td>
+                <td>75</td>
+                <td>75</td>
+                <td>0</td>
+                
+                <td class="right" data-ratio="0 75">0%</td>
+            </tr>
+            
+            <tr class="file">
+                <td class="name left"><a href="calculo_tests_views_test_verificador_cnae_views_py.html">calculo/tests/views/test_verificador_cnae_views.py</a></td>
+                <td>75</td>
+                <td>75</td>
+                <td>0</td>
+                
+                <td class="right" data-ratio="0 75">0%</td>
+            </tr>
+            
+            <tr class="file">
+                <td class="name left"><a href="calculo_urls_py.html">calculo/urls.py</a></td>
+                <td>20</td>
+                <td>0</td>
+                <td>0</td>
+                
+                <td class="right" data-ratio="20 20">100%</td>
+            </tr>
+            
+            <tr class="file">
+                <td class="name left"><a href="calculo_views_atributo_views_py.html">calculo/views/atributo_views.py</a></td>
+                <td>10</td>
+                <td>0</td>
+                <td>0</td>
+                
+                <td class="right" data-ratio="10 10">100%</td>
+            </tr>
+            
+            <tr class="file">
+                <td class="name left"><a href="calculo_views_campo_campo_views_py.html">calculo/views/campo_campo_views.py</a></td>
+                <td>10</td>
+                <td>0</td>
+                <td>0</td>
+                
+                <td class="right" data-ratio="10 10">100%</td>
+            </tr>
+            
+            <tr class="file">
+                <td class="name left"><a href="calculo_views_campo_regra_views_py.html">calculo/views/campo_regra_views.py</a></td>
+                <td>10</td>
+                <td>0</td>
+                <td>0</td>
+                
+                <td class="right" data-ratio="10 10">100%</td>
+            </tr>
+            
+            <tr class="file">
+                <td class="name left"><a href="calculo_views_campo_tabela_views_py.html">calculo/views/campo_tabela_views.py</a></td>
+                <td>10</td>
+                <td>0</td>
+                <td>0</td>
+                
+                <td class="right" data-ratio="10 10">100%</td>
+            </tr>
+            
+            <tr class="file">
+                <td class="name left"><a href="calculo_views_campo_valor_views_py.html">calculo/views/campo_valor_views.py</a></td>
+                <td>10</td>
+                <td>0</td>
+                <td>0</td>
+                
+                <td class="right" data-ratio="10 10">100%</td>
+            </tr>
+            
+            <tr class="file">
+                <td class="name left"><a href="calculo_views_classificacao_esperada_views_py.html">calculo/views/classificacao_esperada_views.py</a></td>
+                <td>10</td>
+                <td>0</td>
+                <td>0</td>
+                
+                <td class="right" data-ratio="10 10">100%</td>
+            </tr>
+            
+            <tr class="file">
+                <td class="name left"><a href="calculo_views_classificacao_views_py.html">calculo/views/classificacao_views.py</a></td>
+                <td>10</td>
+                <td>0</td>
+                <td>0</td>
+                
+                <td class="right" data-ratio="10 10">100%</td>
+            </tr>
+            
+            <tr class="file">
+                <td class="name left"><a href="calculo_views_contestacao_nfe_views_py.html">calculo/views/contestacao_nfe_views.py</a></td>
+                <td>35</td>
+                <td>24</td>
+                <td>0</td>
+                
+                <td class="right" data-ratio="11 35">31%</td>
+            </tr>
+            
+            <tr class="file">
+                <td class="name left"><a href="calculo_views_contestacao_views_py.html">calculo/views/contestacao_views.py</a></td>
+                <td>19</td>
+                <td>7</td>
+                <td>0</td>
+                
+                <td class="right" data-ratio="12 19">63%</td>
+            </tr>
+            
+            <tr class="file">
+                <td class="name left"><a href="calculo_views_correcao_views_py.html">calculo/views/correcao_views.py</a></td>
+                <td>10</td>
+                <td>0</td>
+                <td>0</td>
+                
+                <td class="right" data-ratio="10 10">100%</td>
+            </tr>
+            
+            <tr class="file">
+                <td class="name left"><a href="calculo_views_dados_tabela_views_py.html">calculo/views/dados_tabela_views.py</a></td>
+                <td>10</td>
+                <td>0</td>
+                <td>0</td>
+                
+                <td class="right" data-ratio="10 10">100%</td>
+            </tr>
+            
+            <tr class="file">
+                <td class="name left"><a href="calculo_views_estado_saida_opt_views_py.html">calculo/views/estado_saida_opt_views.py</a></td>
+                <td>10</td>
+                <td>0</td>
+                <td>0</td>
+                
+                <td class="right" data-ratio="10 10">100%</td>
+            </tr>
+            
+            <tr class="file">
+                <td class="name left"><a href="calculo_views_estado_views_py.html">calculo/views/estado_views.py</a></td>
+                <td>10</td>
+                <td>0</td>
+                <td>0</td>
+                
+                <td class="right" data-ratio="10 10">100%</td>
+            </tr>
+            
+            <tr class="file">
+                <td class="name left"><a href="calculo_views_regra_views_py.html">calculo/views/regra_views.py</a></td>
+                <td>10</td>
+                <td>0</td>
+                <td>0</td>
+                
+                <td class="right" data-ratio="10 10">100%</td>
+            </tr>
+            
+            <tr class="file">
+                <td class="name left"><a href="calculo_views_simples_texto_views_py.html">calculo/views/simples_texto_views.py</a></td>
+                <td>10</td>
+                <td>0</td>
+                <td>0</td>
+                
+                <td class="right" data-ratio="10 10">100%</td>
+            </tr>
+            
+            <tr class="file">
+                <td class="name left"><a href="calculo_views_tabela_views_py.html">calculo/views/tabela_views.py</a></td>
+                <td>10</td>
+                <td>0</td>
+                <td>0</td>
+                
+                <td class="right" data-ratio="10 10">100%</td>
+            </tr>
+            
+            <tr class="file">
+                <td class="name left"><a href="calculo_views_verificador_caceal_views_py.html">calculo/views/verificador_caceal_views.py</a></td>
+                <td>10</td>
+                <td>0</td>
+                <td>0</td>
+                
+                <td class="right" data-ratio="10 10">100%</td>
+            </tr>
+            
+            <tr class="file">
+                <td class="name left"><a href="calculo_views_verificador_cnae_views_py.html">calculo/views/verificador_cnae_views.py</a></td>
+                <td>10</td>
+                <td>0</td>
+                <td>0</td>
+                
+                <td class="right" data-ratio="10 10">100%</td>
+            </tr>
+            
+            <tr class="file">
+                <td class="name left"><a href="classificador_IteradorItem_py.html">classificador/IteradorItem.py</a></td>
+                <td>170</td>
+                <td>170</td>
+                <td>0</td>
+                
+                <td class="right" data-ratio="0 170">0%</td>
+            </tr>
+            
+            <tr class="file">
+                <td class="name left"><a href="classificador_data_processing_py.html">classificador/data_processing.py</a></td>
+                <td>44</td>
+                <td>44</td>
+                <td>0</td>
+                
+                <td class="right" data-ratio="0 44">0%</td>
+            </tr>
+            
+            <tr class="file">
+                <td class="name left"><a href="classificadord_py.html">classificadord.py</a></td>
+                <td>80</td>
+                <td>80</td>
+                <td>0</td>
+                
+                <td class="right" data-ratio="0 80">0%</td>
+            </tr>
+            
+            <tr class="file">
+                <td class="name left"><a href="conftest_py.html">conftest.py</a></td>
+                <td>5</td>
+                <td>5</td>
+                <td>0</td>
+                
+                <td class="right" data-ratio="0 5">0%</td>
+            </tr>
+            
+            <tr class="file">
+                <td class="name left"><a href="exportador_nfes_py.html">exportador_nfes.py</a></td>
+                <td>76</td>
+                <td>76</td>
+                <td>0</td>
+                
+                <td class="right" data-ratio="0 76">0%</td>
+            </tr>
+            
+            <tr class="file">
+                <td class="name left"><a href="externos_admin_py.html">externos/admin.py</a></td>
+                <td>14</td>
+                <td>0</td>
+                <td>0</td>
+                
+                <td class="right" data-ratio="14 14">100%</td>
+            </tr>
+            
+            <tr class="file">
+                <td class="name left"><a href="externos_apps_py.html">externos/apps.py</a></td>
+                <td>3</td>
+                <td>0</td>
+                <td>0</td>
+                
+                <td class="right" data-ratio="3 3">100%</td>
+            </tr>
+            
+            <tr class="file">
+                <td class="name left"><a href="externos_migrations_0001_initial_py.html">externos/migrations/0001_initial.py</a></td>
+                <td>7</td>
+                <td>7</td>
+                <td>0</td>
+                
+                <td class="right" data-ratio="0 7">0%</td>
+            </tr>
+            
+            <tr class="file">
+                <td class="name left"><a href="externos_models_caceal_py.html">externos/models/caceal.py</a></td>
+                <td>20</td>
+                <td>1</td>
+                <td>0</td>
+                
+                <td class="right" data-ratio="19 20">95%</td>
+            </tr>
+            
+            <tr class="file">
+                <td class="name left"><a href="externos_models_cacealSEFAZ_py.html">externos/models/cacealSEFAZ.py</a></td>
+                <td>23</td>
+                <td>1</td>
+                <td>0</td>
+                
+                <td class="right" data-ratio="22 23">96%</td>
+            </tr>
+            
+            <tr class="file">
+                <td class="name left"><a href="externos_models_cnae_py.html">externos/models/cnae.py</a></td>
+                <td>14</td>
+                <td>1</td>
+                <td>0</td>
+                
+                <td class="right" data-ratio="13 14">93%</td>
+            </tr>
+            
+            <tr class="file">
+                <td class="name left"><a href="externos_models_cnaeSEFAZ_py.html">externos/models/cnaeSEFAZ.py</a></td>
+                <td>17</td>
+                <td>1</td>
+                <td>0</td>
+                
+                <td class="right" data-ratio="16 17">94%</td>
+            </tr>
+            
+            <tr class="file">
+                <td class="name left"><a href="externos_tests_py.html">externos/tests.py</a></td>
+                <td>1</td>
+                <td>1</td>
+                <td>0</td>
+                
+                <td class="right" data-ratio="0 1">0%</td>
+            </tr>
+            
+            <tr class="file">
+                <td class="name left"><a href="externos_views_py.html">externos/views.py</a></td>
+                <td>1</td>
+                <td>1</td>
+                <td>0</td>
+                
+                <td class="right" data-ratio="0 1">0%</td>
+            </tr>
+            
+            <tr class="file">
+                <td class="name left"><a href="importador_regras_py.html">importador_regras.py</a></td>
+                <td>30</td>
+                <td>30</td>
+                <td>0</td>
+                
+                <td class="right" data-ratio="0 30">0%</td>
+            </tr>
+            
+            <tr class="file">
+                <td class="name left"><a href="importador_sefaz_py.html">importador_sefaz.py</a></td>
+                <td>61</td>
+                <td>61</td>
+                <td>0</td>
+                
+                <td class="right" data-ratio="0 61">0%</td>
+            </tr>
+            
+            <tr class="file">
+                <td class="name left"><a href="importador_sefaz_fix_py.html">importador_sefaz_fix.py</a></td>
+                <td>91</td>
+                <td>91</td>
+                <td>0</td>
+                
+                <td class="right" data-ratio="0 91">0%</td>
+            </tr>
+            
+            <tr class="file">
+                <td class="name left"><a href="importador_tabelas_py.html">importador_tabelas.py</a></td>
+                <td>37</td>
+                <td>37</td>
+                <td>0</td>
+                
+                <td class="right" data-ratio="0 37">0%</td>
+            </tr>
+            
+            <tr class="file">
+                <td class="name left"><a href="importadord_py.html">importadord.py</a></td>
+                <td>29</td>
+                <td>29</td>
+                <td>0</td>
+                
+                <td class="right" data-ratio="0 29">0%</td>
+            </tr>
+            
+            <tr class="file">
+                <td class="name left"><a href="manage_py.html">manage.py</a></td>
+                <td>14</td>
+                <td>6</td>
+                <td>0</td>
+                
+                <td class="right" data-ratio="8 14">57%</td>
+            </tr>
+            
+            <tr class="file">
+                <td class="name left"><a href="settings_default_py.html">settings/default.py</a></td>
+                <td>38</td>
+                <td>0</td>
+                <td>0</td>
+                
+                <td class="right" data-ratio="38 38">100%</td>
+            </tr>
+            
+            <tr class="file">
+                <td class="name left"><a href="settings_development_py.html">settings/development.py</a></td>
+                <td>10</td>
+                <td>10</td>
+                <td>0</td>
+                
+                <td class="right" data-ratio="0 10">0%</td>
+            </tr>
+            
+            <tr class="file">
+                <td class="name left"><a href="settings_monitor_py.html">settings/monitor.py</a></td>
+                <td>66</td>
+                <td>66</td>
+                <td>0</td>
+                
+                <td class="right" data-ratio="0 66">0%</td>
+            </tr>
+            
+            <tr class="file">
+                <td class="name left"><a href="settings_production_py.html">settings/production.py</a></td>
+                <td>13</td>
+                <td>13</td>
+                <td>0</td>
+                
+                <td class="right" data-ratio="0 13">0%</td>
+            </tr>
+            
+            <tr class="file">
+                <td class="name left"><a href="settings_profiling_py.html">settings/profiling.py</a></td>
+                <td>6</td>
+                <td>6</td>
+                <td>0</td>
+                
+                <td class="right" data-ratio="0 6">0%</td>
+            </tr>
+            
+            <tr class="file">
+                <td class="name left"><a href="settings_staging_py.html">settings/staging.py</a></td>
+                <td>12</td>
+                <td>12</td>
+                <td>0</td>
+                
+                <td class="right" data-ratio="0 12">0%</td>
+            </tr>
+            
+            <tr class="file">
+                <td class="name left"><a href="settings_urls_py.html">settings/urls.py</a></td>
+                <td>12</td>
+                <td>2</td>
+                <td>0</td>
+                
+                <td class="right" data-ratio="10 12">83%</td>
+            </tr>
+            
+            <tr class="file">
+                <td class="name left"><a href="settings_wsgi_py.html">settings/wsgi.py</a></td>
+                <td>5</td>
+                <td>5</td>
+                <td>0</td>
+                
+                <td class="right" data-ratio="0 5">0%</td>
+            </tr>
+            
+        </tbody>
+    </table>
+
+    <p id="no_rows">
+        No items found using the specified filter.
+    </p>
+</div>
+
+<div id="footer">
+    <div class="content">
+        <p>
+            <a class="nav" href="https://coverage.readthedocs.io">coverage.py v4.5.3</a>,
+            created at 2019-04-24 19:55
+        </p>
+    </div>
+</div>
+
+</body>
+</html>
