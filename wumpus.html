@@ -7,8 +7,302 @@
     <meta name="author" content="Randy Quindai">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Mundo Wumpus</title>
+	<style type="text/css" media="screen">
+		#line1{
+			float: left;
+		}
+	</style>
 </head>
 <body>
 	<h5>Randy Quindai<br>Teoria dos Jogos (Mundo Wumpus) - 2019<br>Prof. Roberta</h5>
+	<button onclick="agentGoForGold()">Proximo Movimento</button><br>
+	<p id="score">Score: 0 <br>Percepts: None<br><br></p>
+	<div id="line1"></div>
+	<script>
+		 let grid = [['A',-1,-1,-1],[-1,-1,-1,-1],[-1,-1,-1,-1],[-1,-1,-1,-1]];
+		 let gridAux = [['A',-1,-1,-1],[-1,-1,-1,-1],[-1,-1,-1,-1],[-1,-1,-1,-1]];
+		 let gridClueGlitter = [[-1,-1,-1,-1],[-1,-1,-1,-1],[-1,-1,-1,-1],[-1,-1,-1,-1]];
+		 let gridClueBreeze = [[-1,-1,-1,-1],[-1,-1,-1,-1],[-1,-1,-1,-1],[-1,-1,-1,-1]];
+		 let gridClueStench = [[-1,-1,-1,-1],[-1,-1,-1,-1],[-1,-1,-1,-1],[-1,-1,-1,-1]];
+		 let glitterLocation;
+		 let percepts = [];
+		 let action = [];
+		 let steps = [{x:0, y:0}]; // init Archer position
+		 // dir = orientation : 0, 90 180, 270
+		 let agent = {gold: false, deadWumpus: false, shot: true, dir: []};
+		 let score = 0;
+		 let gameIsOver = false;
+		 var worldMap = document.createElement('p');
+		 var breezMap = document.createElement('p');
+		 var stenchMap = document.createElement('p');
+		 var glitterMap = document.createElement('p');
+		 var fixSpace = document.createElement('p');
+		 var scoreShow = document.getElementById("score");
+		 //description
+		 /*
+		 	A : archer - player
+		 	W : wumpus
+		 	P : Pit - buraco (20% of rooms are pits)
+		 	G : Gold - ouro
+		 	B : Breeze - briza
+		 	S : Stench - fedor
+		 */
+
+		 // Start Game
+		 document.body.appendChild(fixSpace);
+		 document.getElementById("line1").appendChild(worldMap);
+		 document.getElementById("line1").appendChild(breezMap);
+		 document.body.appendChild(stenchMap);
+		 document.body.appendChild(glitterMap);
+		 generateWorld();
+		 //agentGoForGold();
+
+		 function agentGoForGold(){
+		 	//debugger;
+		 	if (gameIsOver == false){
+		 		if(steps.length == 1 && !agent.gold){
+			 	// first step random
+			 		updatePercepts();
+			 		let aux = (Math.floor(Math.random()*2) == 0 ? {x:0, y:1}:{x:1,y:0});
+				 	grid[aux.x][aux.y] = "A";
+				 	grid[steps[0].x][steps[0].y] = 1;
+				 	steps.push({x:aux.x, y:aux.y});
+				 	--score;
+				 	updateActions();
+				} else{ // next moves
+					updatePercepts();
+					checkStatus();
+					if (agent.gold == false){
+						let auxL = steps.length-1;
+						do{
+
+							let xmax = (steps[auxL].x+1 < 3 ? steps[auxL].x+2:steps[auxL].x+1);
+							let xmin = (steps[auxL].x-1 < 0 ? 0: steps[auxL].x-1);
+
+							mx = Math.floor(Math.random() * (xmax - xmin ) ) + xmin;
+
+							let ymax = (steps[auxL].y+1 < 3 ? steps[auxL].y+2:steps[auxL].y+1);
+							let ymin = (steps[auxL].y-1 < 0 ? 0: steps[auxL].y-1);
+
+							my = Math.floor(Math.random() * (ymax - ymin ) ) + ymin;
+						} while((mx == steps[auxL].x && my == steps[auxL].y) || !validMove(mx,my));
+
+						grid[mx][my] = "A";
+						grid[steps[auxL].x][steps[auxL].y] = 1;
+						steps.push({x:mx, y:my});
+						--score;
+						updateActions();
+					}
+				}
+			 			 	
+			 	showScoreOnScreen();
+
+		 		escreveWorldStatus();
+		 		checkStatus();
+		 	} else {
+		 		let msg = "Jogo terminou!";
+		 		if (!agent.gold) msg += "\nAgente morreu!";
+		 		else msg += "\nAgente saiu da caverna com o ouro!";
+		 		msg += "\nSua pontuacao: "+ score;
+		 		alert(msg);
+		 	}
+		 	
+		 }
+
+		 function checkStatus(){
+		 //debugger;	
+		 	if( steps.length>0){
+			 	let curr = steps[steps.length-1];
+
+			 	if (gridAux[curr.x][curr.y] == "P" || gridAux[curr.x][curr.y] == "W"){
+			 		score -= 1000;
+			 		gameIsOver = true;
+		 		}
+		 	}
+
+		 	if ((steps.length) == 0 && (agent.gold==true)){ //jogo acabou
+		 		gameIsOver = true;
+		 	}
+
+//debugger;
+		 	if (agent.gold && steps.length > 1){
+		 		while(percepts.includes("Gold"))
+		 			percepts.pop();
+
+		 		let ant = steps.pop();
+		 		let aux = steps.pop();
+		 		grid[ant.x][ant.y] = 1;
+		 		grid[aux.x][aux.y] = "A";
+		 		--score;
+		 	}
+
+		 	if (percepts.includes("Gold")){ // refaz caminho de volta
+		 		agent.gold = true;
+		 		score += 1000;
+		 		action.push("PEGOU O OURO");
+		 		//percepts.pop();	 		
+		 	}
+
+		 	showScoreOnScreen();
+		 	escreveWorldStatus();
+		 }
+
+		 function showScoreOnScreen(){
+		 	scoreShow.innerHTML = "Score: "+ score + "<br>"+
+		 					"Percepts: "+ percepts + "<br>"+
+		 					"Ultima Acao: "+ action +"<br>"+
+		 					"Jogo Rodando: "+ !gameIsOver +"<br>"+
+		 					"Agente: "+JSON.stringify(agent)+"<br><br>";
+		 }
+
+		 function updatePercepts(){
+		 	if (steps.length>1){
+			 	let curr = steps[steps.length-1];
+			 	if (gridClueStench[curr.x][curr.y] != -1 )
+			 		percepts.push( "Stench" );
+			 	if ( gridClueBreeze[curr.x][curr.y] != -1 )
+			 		percepts.push( "Breeze" );
+			 	if (gridClueGlitter[curr.x][curr.y] != -1 )
+			 		percepts.push( "Gold" );
+			}
+		 }
+
+		 function updateActions(){
+		 	let aux = steps.length-1;
+		 	if (steps[aux-1].x == steps[aux].x && steps[aux-1].y+1 == steps[aux].y) { //right
+		 		action.push("MOVEU DIREITA");
+		 		agent.dir.push("0");
+		 	}
+		 	if (steps[aux-1].x == steps[aux].x && steps[aux-1].y-1 == steps[aux].y) { //left
+		 		action.push("MOVEU ESQUERDA");
+		 		agent.dir.push("180");
+		 	}
+		 	if (steps[aux-1].y == steps[aux].y && steps[aux-1].x+1 == steps[aux].x) { //down
+		 		action.push("MOVEU BAIXO");
+		 		agent.dir.push("270");
+		 	}
+		 	if (steps[aux-1].y == steps[aux].y && steps[aux-1].x-1 == steps[aux].x) { //up
+		 		action.push("MOVEU CIMA");
+		 		agent.dir.push("90");
+		 	}
+		 }
+
+		 function validMove(x, y){
+		 	let aux = steps.length-1;
+		 	if (steps[aux].x == x && steps[aux].y+1 == y) { //right
+		 		return true;
+		 	}
+		 	if (steps[aux].x == x && steps[aux].y-1 == y) { //left
+		 		return true;
+		 	}
+		 	if (steps[aux].y == y && steps[aux].x+1 == x) { //down
+		 		return true;
+		 	}
+		 	if (steps[aux].y == y && steps[aux].x-1 == x) { //up
+		 		return true;
+		 	}
+
+		 	return false;
+		 }
+
+		 function generateWorld(){
+		 	/** Generates
+			 	Only one wumpus - Apenas um wumpus
+			 	Only one gold - Apenas um ouro
+			 	Many pits in random rooms - vários buracos em posições aleatórias
+			 	gen: generated number
+		 	*/
+		 	let clues = [];
+		 	let gen;
+		// gera wumpus
+		 	gen = posVectorToPosMat (Math.floor(Math.random() * 15) + 1); // returns a random integer from 1 to 15 
+		 	grid[gen.i][gen.j] = "W";
+		 	gridAux[gen.i][gen.j] = "W";
+		 	clues.push(	{x:gen.i-1, y:gen.j} ); //up
+		 	clues.push( {x:gen.i+1, y:gen.j} ); //down
+	 		clues.push( {x:gen.i, y:gen.j+1} ); //right
+	 		clues.push( {x:gen.i, y:gen.j-1} ); //left
+
+		 	// coloca dicas(fedor) para o wumpus
+		 	//if ( (gen.i-1) >= 0 && ((gen.i-1) < 4) && (gen.j >= 0) && ((gen.j+1) >= 0) )
+		 	clues.map(c => {
+		 		if (c.x >= 0 && c.x < 4 && c.y >= 0 && c.y < 4) // if is a valid position
+		 			gridClueStench[c.x][c.y] = "S";
+		 	});
+
+		// gera ouro
+			glitterLocation = posVectorToPosMat (Math.floor(Math.random() * 15) + 1); // returns a random integer from 
+			gridClueGlitter[glitterLocation.i][glitterLocation.j] = "G";
+
+		// gera buracos
+		 	let i = 0; clues = [];
+		 	while(i < 3){
+		 		gen = posVectorToPosMat (Math.floor(Math.random() * 15) + 1); // returns a random integer from 1 to 15
+
+		 		if (grid[gen.i][gen.j] != "W" && grid[gen.i][gen.j] != "P" && grid[gen.i][gen.j] != "G"){ //guarantees 20% of Pits
+		 			grid[gen.i][gen.j] = "P";
+		 			gridAux[gen.i][gen.j] = "P";
+		 			++i;
+		 		}
+
+		 		clues.push(	{x:gen.i-1, y:gen.j} ); //up
+			 	clues.push( {x:gen.i+1, y:gen.j} ); //down
+		 		clues.push( {x:gen.i, y:gen.j+1} ); //right
+		 		clues.push( {x:gen.i, y:gen.j-1} ); //left
+
+		 		clues.map(c => {
+		 		if (c.x >= 0 && c.x < 4 && c.y >= 0 && c.y < 4) {// if is a valid position
+		 			if (grid[c.x][c.y] != "P") // ensures that a room with hole will not have a breeze
+		 				gridClueBreeze[c.x][c.y] = "B";
+		 		}
+		 		});
+		 	}
+		 	
+		 	escreveWorldStatus()
+
+		 }
+
+		function escreveGrid(tabuleiro, mygrid, title){
+				tabuleiro.innerHTML = title+'<br>';
+				for(i = 0; i<4; ++i){
+					for(j = 0; j<4; ++j){
+						tabuleiro.innerHTML += "  "+ mygrid[i][j] +"   |";
+					}
+					tabuleiro.innerHTML += '<br>';
+					for(j = 0; j<4; ++j){
+						tabuleiro.innerHTML += "----"
+						if (j <= 2) tabuleiro.innerHTML += "|";
+					}
+					tabuleiro.innerHTML += '<br>';
+				}
+			}
+
+		function escreveWorldStatus(){
+			escreveGrid(worldMap, grid, "Mapa do Mundo");
+			escreveGrid(breezMap, gridClueBreeze, "Mapeamento das brizas");
+			escreveGrid(stenchMap, gridClueStench, "Mapeamento do fedor");
+			escreveGrid(glitterMap, gridClueGlitter, "Localizacao do ouro");
+
+		}
+
+		function log2(n) 
+		{ 
+		  return (n==1)? 0 : 1 + log2(n/2); 
+		}
+
+		function matToVector(b){
+			let v = [];
+			for( i = 0; i < 4; ++i ) 
+					for (j = 0; j < 4; ++j)
+						v[i*4 + j] = auxTab[i][j];
+			return v;
+		}
+
+		function posVectorToPosMat(num){
+			for( i = 0; i < 4; ++i ) 
+				for (j = 0; j < 4; ++j)
+					if((i*4 +j) == num) return{i,j};
+		}
+	</script>
 </body>
 </html>
