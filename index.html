@@ -37,7 +37,7 @@
 				<small class="lead"><abbr title="University Of Alagoas">MSc in Informatics (Enrolled)</abbr></small><br/>
 				<small>BSc in Computer Science</small>
 				<small class="text-muted">University Of Alagoas</small><br/>
-				<small class="text-muted"><a href="#">Curriculum Lattes <i class="fas fa-external-link-alt"></i></a></small>
+				<small class="text-muted"><a href="http://lattes.cnpq.br/7331185605037371">Curriculum Lattes <i class="fas fa-external-link-alt"></i></a></small>
 				
 				<hr/>
 				<p class="lead">Portfólio</p>
@@ -50,7 +50,7 @@
 	    
 
 	    <button type="button" class="list-group-item list-group-item-action" id="neuralnum">Reconhecedor de Dígitos
-			<iframe class="description" src="https://www.quindai.github.io/neuralnum"></iframe>
+			<iframe class="description" id="neuralnumid" src="https://www.quindai.github.io/neuralnum"></iframe>
 	    </button>
 	    <button type="button" class="list-group-item list-group-item-action" id="tictactoe">TicTacToe (MinMax)
 			<iframe class="description" src="http://www.example.com"></iframe>
@@ -72,10 +72,16 @@
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
 	<script>
+		//var obj;
 		$(":button").mouseover(() => {
-			$(this).children(".description").show();
+			//obj = $(this);
+			//debugger;
+			document.getElementById("neuralnumid").style.display = 'block';
+			//$("#neuralnumid").style.display = "block";
+			//$(this).children(".description").show();
 		}).mouseout(()=> {
-			$(this).children(".description").hide();
+			document.getElementById("neuralnumid").style.display = 'none';
+			//$(this).children(".description").hide();
 		});
 	</script>
 </body>
