@@ -3,95 +3,110 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="description" content="Personal Data">
-  	<meta name="author" content="Randy Quindai">
-  	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<meta name="author" content="Randy Quindai">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
 	<script src="https://kit.fontawesome.com/2d0ef28c32.js"></script>
 
-  	<title>Personal page Randy Quindai</title>
-  	<style type="text/css">
-  		.description {
-		    display:none;
-		    position:absolute;
-		    border:1px solid #000;
-		    width:400px;
-		    height:400px;
-		    z-index: 100;
+	<title>Personal page Randy Quindai</title>
+	<style type="text/css">
+		body{
+
+			background: #232526;  /* fallback for old browsers */
+			background: -webkit-linear-gradient(to right, #414345, #232526);  /* Chrome 10-25, Safari 5.1-6 */
+			background: linear-gradient(to right, #414345, #232526); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+		}
+		.description {
+			display:none;
+			position:absolute;
+			border:1px solid #000;
+			width:400px;
+			height:400px;
+			z-index: 100;
 		}
 
 		.box{
-		    display: none;
-		    width: 100%;
+			display: none;
+			width: 100%;
 		}
 
 		a:hover + .box,.box:hover{
-		    display: block;
-		    position: absolute;
-		    z-index: 100;
+			display: block;
+			position: absolute;
+			z-index: 100;
 		}
-  	</style>
+		.mtext{
+			background: #ECE9E6;  /* fallback for old browsers */
+			background: -webkit-linear-gradient(to right, #FFFFFF, #ECE9E6);  /* Chrome 10-25, Safari 5.1-6 */
+			background: linear-gradient(to right, #FFFFFF, #ECE9E6); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+			height: 35em;
+			overflow-y: auto;
+		}
+	</style>
 </head>
 <body>
 
 	<!-- public hover link
 		https://stackoverflow.com/questions/23251569/preview-page-on-link-hover -->
 
-	<!-- https://www.sitepoint.com/a-basic-html5-template/ -->
-	<div class="container px-lg-5">
-		<div class="row align-items-center">
-			<div class="col-sm py-3">
-				<img  class="rounded mx-auto d-block" src="randy.jpg" alt="Photo of Randy Quindai">
-			</div>
-			<div class="col-sm py-3 border">
-				<h3>Randy Quindai</h3>
-				<small class="lead"><abbr title="University Of Alagoas">MSc in Informatics (Enrolled)</abbr></small><br/>
-				<small>BSc in Computer Science</small>
-				<small class="text-muted">University Of Alagoas</small><br/>
-				<small class="text-muted"><a target="_blank" href="http://lattes.cnpq.br/7331185605037371">Curriculum Lattes <i class="fas fa-external-link-alt"></i></a></small>
-				
-				<hr/>
+		<!-- https://www.sitepoint.com/a-basic-html5-template/ -->
+		<div class="container px-lg-5">
+			<div class="row align-items-center">
+				<div class="col-sm py-3">
+					<img  class="rounded mx-auto d-block" height="550em" src="randy.jpg" alt="Photo of Randy Quindai">
+				</div>
+				<div class="col-sm py-3 border mtext">
+					<h3>Randy Quindai</h3>
+					<small class="lead"><abbr title="University Of Alagoas">MSc in Informatics (Enrolled)</abbr></small><br/>
+					<small>BSc in Computer Science</small>
+					<small class="text-muted">University Of Alagoas</small><br/>
+					<small class="text-muted"><a target="_blank" href="http://lattes.cnpq.br/7331185605037371">Curriculum Lattes <i class="fas fa-external-link-alt"></i></a></small>
 
-				<p class="lead">Portfólio</p>
+					<hr/>
 
-				<a href="http://www.evento.ufal.br/4jiaais/" target="_blank">JIAAIS UFAL</a>
-				<div class="box"><iframe src="http://www.evento.ufal.br/4jiaais/" width = "100%" height = "300px"></iframe></div> <br/>
+					<p class="lead">Portfólio</p>
 
-				<a href="http://quindai.github.io/pt_kikongo" target="_blank">Dicionário Português para Kikongo</a>
-				<div class="box"><iframe src="http://quindai.github.io/pt_kikongo" width = "100%" height = "300px"></iframe></div> <br/>
+					<a href="http://www.evento.ufal.br/4jiaais/" target="_blank">JIAAIS UFAL</a>
+					<div class="box"><iframe src="http://www.evento.ufal.br/4jiaais/" width = "100%" height = "300px"></iframe></div> <br/>
 
-				<a href="http://www.laccan.ufal.br/" target="_blank">Website LaCCAN</a>
-				<div class="box"><iframe src="http://www.laccan.ufal.br/" width = "100%" height = "300px"></iframe></div> <br/>
-				
+					<a href="http://quindai.github.io/pt_kikongo" target="_blank">Dicionário Português para Kikongo</a>
+					<div class="box"><iframe src="http://quindai.github.io/pt_kikongo" width = "100%" height = "300px"></iframe></div> <br/>
 
-				<a href="https://quindai.github.io/neuralnum/" target="_blank">IA - Reconhecedor de Dígitos</a>
-				<div class="box"><iframe src="https://quindai.github.io/neuralnum/" width = "100%" height = "300px"></iframe></div> <br/>
-				
-				<a href="https://quindai.github.io/jogodavelha" target="_blank">JOGO - TicTacToe (MinMax)</a>
-				<div class="box"><iframe src="https://quindai.github.io/jogodavelha" width = "100%" height = "300px"></iframe></div> <br/><br/>
-
-				<p class="lead">Palestras</p>
-
-				<a href="https://quindai.github.io/presentations/robo_etica" target="_blank">Robótica e Ética</a>
-				<div class="box"><iframe src="https://quindai.github.io/presentations/robo_etica" width = "100%" height = "300px"></iframe></div> <br/>
-
-				<a href="https://quindai.github.io/presentations/rsyst" target="_blank">Revisão Sistemática da Literatura</a>
-				<div class="box"><iframe src="https://quindai.github.io/presentations/rsyst" width = "100%" height = "300px"></iframe></div> <br/>
-
-				<small class="text-muted"><a href="https://speakerdeck.com/quindai">Veja mais em Speaker Deck</a></small>
-				<br/><br/>
+					<a href="http://www.laccan.ufal.br/" target="_blank">Website LaCCAN</a>
+					<div class="box"><iframe src="http://www.laccan.ufal.br/" width = "100%" height = "300px"></iframe></div> <br/>
 
 
-				<p class="lead">Cursos Ministrados</p>
-				<a href="https://sites.google.com/site/sensornetufal/how-to-s/reviso-sistemtica" target="_blank">Revisão Sistemática da Literatura</a>
-				<div class="box"><iframe src="https://sites.google.com/site/sensornetufal/how-to-s/reviso-sistemtica" width = "100%" height = "300px"></iframe></div> <br/><br/>
+					<a href="https://quindai.github.io/neuralnum/" target="_blank">IA - Reconhecedor de Dígitos</a>
+					<div class="box"><iframe src="https://quindai.github.io/neuralnum/" width = "100%" height = "300px"></iframe></div> <br/>
 
-				<p class="lead">Eventos Organizados</p>
-				<a href="https://nodeschool.io/chapters.html" target="_blank">Criador do NodeSchool Luanda,AO</a>
-				<small class="text-muted">
-				<div class="box"><iframe src="https://nodeschool.io/chapters.html" width = "100%" height = "300px"></iframe></div> <br/>
+					<a href="https://quindai.github.io/jogodavelha" target="_blank">JOGO - TicTacToe (MinMax)</a>
+					<div class="box"><iframe src="https://quindai.github.io/jogodavelha" width = "100%" height = "300px"></iframe></div> <br/><br/>
 
-				<a href="https://ti.to/quindai/nodeschool-luanda">Página oficial</a>  <a href="https://www.menosfios.com/foi-realizado-a-primeira-edicao-do-nodeschool-luanda/" target="_blank">  Matéria</a></small><br/>
+					<p class="lead">Palestras</p>
+
+					<a href="https://quindai.github.io/presentations/robo_etica" target="_blank">Robótica e Ética</a>
+					<div class="box"><iframe src="https://quindai.github.io/presentations/robo_etica" width = "100%" height = "300px"></iframe></div> <br/>
+
+					<a href="https://quindai.github.io/presentations/rsyst" target="_blank">Revisão Sistemática da Literatura</a>
+					<div class="box"><iframe src="https://quindai.github.io/presentations/rsyst" width = "100%" height = "300px"></iframe></div> <br/>
+
+					<small class="text-muted"><a href="https://speakerdeck.com/quindai">Veja mais em Speaker Deck</a></small>
+					<br/><br/>
+
+
+					<p class="lead">Cursos Ministrados</p>
+					<a href="https://sites.google.com/site/sensornetufal/how-to-s/reviso-sistemtica" target="_blank">Revisão Sistemática da Literatura</a>
+					<div class="box"><iframe src="https://sites.google.com/site/sensornetufal/how-to-s/reviso-sistemtica" width = "100%" height = "300px"></iframe></div> <br/><br/>
+
+					<p class="lead">Eventos Organizados</p>
+					<a href="https://nodeschool.io/chapters.html" target="_blank">Criador do NodeSchool Luanda,AO</a>
+					
+					<div class="box"><iframe src="https://nodeschool.io/chapters.html" width = "100%" height = "300px"></iframe></div> <br/>
+
+					<small class="text-muted">
+						<a href="https://ti.to/quindai/nodeschool-luanda">Página oficial</a> | <a href="https://www.menosfios.com/foi-realizado-a-primeira-edicao-do-nodeschool-luanda/" target="_blank">  Matéria</a>
+					</small><br/>
 
 
 
@@ -114,12 +129,12 @@
 			<iframe class="description" src="http://www.example.com"></iframe>
 	    </button>
 	</div-->
-				</div>
-			</div>
-		</div>
+</div>
+</div>
+</div>
 
-	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </body>
 </html>
